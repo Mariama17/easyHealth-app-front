@@ -11,7 +11,6 @@ function Header () {
             <span>
                 <img src={img} width="40%" marginTop="5%"/>
             </span>
-
             <span style={{marginLeft: "30%", marginTop: "5%", alignItems: "center", justifyContent: "space-around"}}>
                 <span style={{margin:15}}>
                     <Button>s'inscrire</Button> 
@@ -20,7 +19,6 @@ function Header () {
                     <Button>se connecter</Button>
                 </span>
             </span>
-
             <div style={{ marginLeft: "-15%", marginTop: "10%"}}>
                 <p>
                     <b>
