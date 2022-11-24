@@ -3,14 +3,13 @@ import React from 'react';
 import Button from "react-bootstrap/Button";
 import img from '../images/easy-health.png';
 import Connect from './connect';
-import Footer from './footer';
 
 function Login() {
     return (
         <div>
-            <header  className='login'>
+            <header className='login'>
                     <span>
-                        <img src={img}  width="40%" style={{marginLeft: "100%"}} />
+                        <img src={img}  width="40%" style={{marginLeft: "110%"}} />
                     </span>
                     <span style={{marginLeft: "30%", alignItems: "center", justifyContent: "space-around"}}>
                         <span>
@@ -26,7 +25,6 @@ function Login() {
                     </span> 
             </header>
             <Connect/>
-            {/* <Footer/> */}
         </div>
     )
 }

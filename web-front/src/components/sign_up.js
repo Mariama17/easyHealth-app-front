@@ -3,13 +3,12 @@ import React from 'react';
 import Footer from './footer';
 import img from '../images/easy-health.png';
 import Button from "react-bootstrap/Button";
-// import Form from './form'
+import Form from './form'
 
 function Sign_up() {
     return (
         <div>
-            <header>
-                <div className='sign'>
+            <header className='sign'>
                     <span>
                         <img src={img}  width="40%" style={{marginLeft: "100%"}} />
                     </span>
@@ -28,11 +27,8 @@ function Sign_up() {
                             </b>
                         </label>
                     </div> 
-                    </div>
-            </header>
-            <body>
-                {/* <Form/> */}
-            </body>
+            </header>  
+            <Form/>
             <Footer/>
         </div>
     ) 

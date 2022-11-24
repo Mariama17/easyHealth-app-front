@@ -1,16 +1,24 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import Button from "react-bootstrap/Button";
+import img from '../images/assistante-medicale.jpg';
+import footer1 from '../images/facebook.png';
+import footer2 from '../images/twiter.png';
+import footer3 from '../images/linkdin.png';
+
 
 function Connect() {
     return (
         <div>
-            <div className='loginBody'>
+			<span className= 'img_assistante-medicale'>
+				<img src={img} width="46%"/>
+			</span>
+            <span className='loginBody'>
 				<p style={{ fontSize: '150%', textAlign: 'center'}}>
 					<b>
                         Connectez vous 
                     </b>
-				</p>    
+				</p>  
                 <div classN ame='inputLogin'>
 					<input id='login' class='form-control' type='text' placeholder="identifiant" style={{ width:"90%", margin:10 }}/> <br/>
                     <input id='password' class='form-control' type='password' placeholder="mot de passe" style={{ width:"90%", margin:10 }}/>
@@ -35,7 +43,30 @@ function Connect() {
 						Me connecter
 					</b>
 				</Button>
-            </div>
+            </span>
+			<footer className='loginFooter'>
+            <p>Politique relatives aux cookies</p>
+            <a
+                href="https://www.facebook.com"
+                title="Rejoignez-nous sur Facebook"
+            >
+                <img src={footer1} width="30px"/>
+            </a>
+
+            <a
+                href="https://twitter.com/"
+                title="Rejoignez-nous sur Twitter"
+            >
+                <img src={footer2} width="30px"/>
+            </a>
+
+            <a
+                href="https://www.linkedin.com"
+                title="Rejoignez-nous sur LinkedIn"
+            >
+                <img src={footer3} width="30px"/>
+            </a>
+        </footer>
         </div>
     )
 }

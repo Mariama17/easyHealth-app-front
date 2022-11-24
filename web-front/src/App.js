@@ -11,13 +11,11 @@ import './css/main.css';
 function App() {
   return (
     <div className="App">
-      {/* <Header />
+      <Header />
       <Main />
-			<Footer /> */}
-      {/* <Sign_up />
-      <Form/> */}
-      <Login />
-      {/* <Connect /> */}
+			<Footer />
+      {/* <Login /> */}
+      {/* <Sign_up /> */}
     </div>
   );
 }

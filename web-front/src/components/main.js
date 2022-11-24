@@ -13,13 +13,7 @@ const Main = () => {
             <span className='imgEasy'>
                 <img src={easy} width="70%"/>
             </span>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <br/><br/><br/><br/><br/><br/><br/>
             <span className='text'>
                 <label>
                     <b>
@@ -27,9 +21,9 @@ const Main = () => {
                     </b>
                 </label>
             </span>
-            <span style={{marginLeft: "25%"}}>
+            {/* <span style={{marginLeft: "25%"}}>
                 <img src={courbe} width="60%"/>
-            </span>  
+            </span>   */}
         </div>
     ) 
 }
