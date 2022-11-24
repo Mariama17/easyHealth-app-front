@@ -94,6 +94,52 @@ footer{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-/* .createAccount {
-    margin-top: 100px;
+.login {
+    width: 100%;
+    background: linear-gradient(rgb(36, 154, 36), 70%, rgb(64, 64, 197));
+    color: white;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    font-size: 125%;
+}
+
+/* .loginBody {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20%
 } */
+    
+.loginBody {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20%;
+    margin-left: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: #becedc;
+    border: 3px solid #F4F5F7;
+    width: 30%;
+    height: 400px;
+}
+
+/* .inputLogin {
+    margin-top: 10%;
+} */
+
+.loginForgetMdpDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10%;
+} 
+
+.label{
+    color: hsla(241, 96%, 47%, 0.925);
+    font-size: 14px;
+}

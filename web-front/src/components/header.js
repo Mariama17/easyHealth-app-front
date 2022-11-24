@@ -11,7 +11,7 @@ function Header () {
             <span>
                 <img src={img} width="40%" marginTop="5%"/>
             </span>
-            <span style={{marginLeft: "30%", marginTop: "5%", alignItems: "center", justifyContent: "space-around"}}>
+            <span style={{marginLeft: "30%", alignItems: "center", justifyContent: "space-around"}}>
                 <span style={{margin:15}}>
                     <Button>s'inscrire</Button> 
                 </span>

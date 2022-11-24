@@ -3,7 +3,7 @@ import React from 'react';
 import Footer from './footer';
 import img from '../images/easy-health.png';
 import Button from "react-bootstrap/Button";
-import Form from './form'
+// import Form from './form'
 
 function Sign_up() {
     return (
@@ -13,7 +13,7 @@ function Sign_up() {
                     <span>
                         <img src={img}  width="40%" style={{marginLeft: "100%"}} />
                     </span>
-                    <span style={{marginLeft: "30%", marginTop: "5%", alignItems: "center", justifyContent: "space-around"}}>
+                    <span style={{marginLeft: "30%", alignItems: "center", justifyContent: "space-around"}}>
                         <span>
                             <Button>s'inscrire</Button> 
                         </span>
