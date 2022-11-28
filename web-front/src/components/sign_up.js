@@ -3,9 +3,11 @@ import React from 'react';
 import Footer from './footer';
 import img from '../images/easy-health.png';
 import Button from "react-bootstrap/Button";
-import Form from './form'
+import Form from './form';
+import { useNavigate  } from "react-router-dom";
 
 function Sign_up() {
+    const navigate = useNavigate();
     return (
         <div>
             <header className='sign'>
@@ -13,13 +15,13 @@ function Sign_up() {
                         <img src={img}  width="40%" style={{marginLeft: "105%"}} />
                     </span>
                     <span style={{marginLeft: "30%", alignItems: "center", marginTop: 20}}>
-                        <span style={{margin:15}}>
-                            <Button style={{width:100, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
-                                S'inscrire
+                        <label style={{margin:15}}>
+                            <Button onClick={() => navigate("/home")} style={{width:100, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
+                                Accueil
                             </Button> 
-                        </span>
+                        </label>
                         <span>
-                            <Button style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
+                            <Button onClick={() => navigate("/login")} style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
                                 Se connecter
                             </Button>
                         </span>

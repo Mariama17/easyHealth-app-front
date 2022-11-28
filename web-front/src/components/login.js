@@ -3,8 +3,10 @@ import React from 'react';
 import Button from "react-bootstrap/Button";
 import img from '../images/easy-health.png';
 import Connect from './connect';
+import { useNavigate  } from "react-router-dom";
 
 function Login() {
+    const navigate = useNavigate();
     return (
         <div>
             <header className='login'>
@@ -13,12 +15,12 @@ function Login() {
                     </span>
                     <span style={{marginLeft: "30%", alignItems: "center", marginTop: 20}}>
                         <span style={{margin:15}}>
-                            <Button style={{width:200, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
+                            <Button onClick={() => navigate("/inscription")} style={{width:200, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
                                 Vous n'avez pas de compte ?
                             </Button> 
                         </span>
                         <span>
-                            <Button style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
+                            <Button onClick={() => navigate("/home")} style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
                                 Accueil
                             </Button>
                         </span>

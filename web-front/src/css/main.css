@@ -44,7 +44,7 @@ footer{
     z-index: 2;
     position : relative;
     left: 15%;
-    top: 20%;
+    top: 20%
 }
 
 .imgEasy {
@@ -54,9 +54,10 @@ footer{
 }
 
 .text {
-    color: black;
+    color: blue;
     margin-left: 50%;
-    top: 150px
+    top: 150px;
+    text-decoration : underline;
 }
 
 .sign {
@@ -162,4 +163,9 @@ footer{
     color: white;
     background-color: rgb(64, 64, 197);
     border-top: 0.1px solid #4452ebd1;
+}
+
+.aboutUs{
+    text-align: center;
+    font-size: 15px;
 }

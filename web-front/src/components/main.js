@@ -2,9 +2,10 @@
 import React from 'react';
 import image from '../images/image.png';
 import easy from '../images/easy.png';
-import courbe from '../images/courbe.png';
+import { useNavigate  } from "react-router-dom";
 
 const Main = () => {
+    const navigate = useNavigate();
     return (
         <div>
             <span className='img'>
@@ -15,15 +16,12 @@ const Main = () => {
             </span>
             <br/><br/><br/><br/><br/><br/><br/>
             <span className='text'>
-                <label>
+                <label onClick={() => navigate("/aboutUs")}>
                     <b>
                         Qui sommes nous ? 
                     </b>
                 </label>
             </span>
-            {/* <span style={{marginLeft: "25%"}}>
-                <img src={courbe} width="60%"/>
-            </span>   */}
         </div>
     ) 
 }

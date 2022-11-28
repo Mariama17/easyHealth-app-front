@@ -5,9 +5,11 @@ import img from '../images/assistante-medicale.jpg';
 import footer1 from '../images/facebook.png';
 import footer2 from '../images/twiter.png';
 import footer3 from '../images/linkdin.png';
+import { useNavigate  } from "react-router-dom";
 
 
 function Connect() {
+    const navigate = useNavigate();
     return (
         <div>
 			<span className= 'img_assistante-medicale'>
@@ -33,13 +35,15 @@ function Connect() {
 								</label>
                             <b>
 								{/* <label style={{ color: 'blue', fontSize: '115%' }} onClick={() => history.push('/forgetPassword')}><FormattedMessage id='connexion.body.ForgetMDP' /></label> */}
-								<label style={{ margin: 20, fontSize: '100%' }}>Mot de passe oublié ?</label>
+								<label style={{ margin: 20, fontSize: '100%' }}>
+                                    Mot de passe oublié ?
+                                </label>
 							</b>
 						</div>
 					</div>
 				</div>
-                <Button style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
-                        Se connecter
+                <Button onClick={() => navigate("/login")} style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
+                    Se connecter
                 </Button>
             </span>
 			<footer className='loginFooter'>

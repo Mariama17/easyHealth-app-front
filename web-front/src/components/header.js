@@ -2,10 +2,10 @@
 import React from 'react';
 import img from '../images/easy-health.png';
 import Button from "react-bootstrap/Button";
-// import { useHistory } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 
 function Header () {
-    // const history = useHistory();
+    const navigate = useNavigate();
     return (
         <header>
             <span>
@@ -13,12 +13,12 @@ function Header () {
             </span>
             <span style={{marginLeft: "30%", alignItems: "center", marginTop: 20}}>
                 <span style={{margin:15}}>
-                    <Button style={{width:100, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
+                    <Button onClick={() => navigate("/inscription")} style={{width:100, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
                         S'inscrire
                     </Button> 
                 </span>
                 <span>
-                    <Button style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
+                    <Button onClick={() => navigate("/login")} style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
                         Se connecter
                     </Button>
                 </span>

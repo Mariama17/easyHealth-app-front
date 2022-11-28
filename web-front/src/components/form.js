@@ -1,7 +1,9 @@
 import React from 'react';
 import Button from "react-bootstrap/Button";
+import { useNavigate  } from "react-router-dom";
 
 function Form() {
+  const navigate = useNavigate();
   return (
     <div>
         <div className="Input">
@@ -45,7 +47,7 @@ function Form() {
               </div>
               <br/>
               <div className="sign_up">
-                  <Button style={{width:200, height: 40, background: ' #1846a3 ', color: 'white'}}>
+                  <Button onClick={() => navigate("/home")} style={{width:200, height: 40, background: ' #1846a3 ', color: 'white'}}>
                       <b>
                           S'inscrire
                       </b>
