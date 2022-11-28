@@ -10,7 +10,7 @@ function Sign_up() {
         <div>
             <header className='sign'>
                     <span>
-                        <img src={img}  width="40%" style={{marginLeft: "100%"}} />
+                        <img src={img}  width="40%" style={{marginLeft: "105%"}} />
                     </span>
                     <span style={{marginLeft: "30%", alignItems: "center", marginTop: 20}}>
                         <span style={{margin:15}}>

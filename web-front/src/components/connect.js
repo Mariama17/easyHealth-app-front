@@ -38,11 +38,9 @@ function Connect() {
 						</div>
 					</div>
 				</div>
-                <Button style={{ width: '40%', height: 30 }} >
-					<b>
-						Me connecter
-					</b>
-				</Button>
+                <Button style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
+                        Se connecter
+                </Button>
             </span>
 			<footer className='loginFooter'>
             <p>Politique relatives aux cookies</p>
