@@ -11,18 +11,18 @@ function Login() {
                     <span>
                         <img src={img}  width="40%" style={{marginLeft: "110%"}} />
                     </span>
-                    <span style={{marginLeft: "30%", alignItems: "center", justifyContent: "space-around"}}>
-                        <span>
-                            <Button>
+                    <span style={{marginLeft: "30%", alignItems: "center", marginTop: 20}}>
+                        <span style={{margin:15}}>
+                            <Button style={{width:200, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
                                 Vous n'avez pas de compte ?
                             </Button> 
                         </span>
-                        <span style={{margin:30}}>
-                            <Button>
+                        <span>
+                            <Button style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
                                 Accueil
                             </Button>
                         </span>
-                    </span> 
+            </span>
             </header>
             <Connect/>
         </div>

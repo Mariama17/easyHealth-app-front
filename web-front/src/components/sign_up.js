@@ -12,14 +12,18 @@ function Sign_up() {
                     <span>
                         <img src={img}  width="40%" style={{marginLeft: "100%"}} />
                     </span>
-                    <span style={{marginLeft: "30%", alignItems: "center", justifyContent: "space-around"}}>
+                    <span style={{marginLeft: "30%", alignItems: "center", marginTop: 20}}>
+                        <span style={{margin:15}}>
+                            <Button style={{width:100, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
+                                S'inscrire
+                            </Button> 
+                        </span>
                         <span>
-                            <Button>s'inscrire</Button> 
+                            <Button style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
+                                Se connecter
+                            </Button>
                         </span>
-                        <span style={{margin:30}}>
-                            <Button>se connecter</Button>
-                        </span>
-                    </span>
+                </span>
                     <div style={{ marginLeft: "-15%", marginTop: "12%"}}>
                         <label>
                             <b>
