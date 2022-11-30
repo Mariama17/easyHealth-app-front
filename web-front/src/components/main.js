@@ -7,6 +7,8 @@ import { useNavigate  } from "react-router-dom";
 const Main = () => {
     const navigate = useNavigate();
     return (
+    <div>
+        <div><br/><br/><br/><br/><br/><br/></div>
         <div>
             <span className='img'>
                 <img src={image} width="40%"/>
@@ -14,7 +16,7 @@ const Main = () => {
             <span className='imgEasy'>
                 <img src={easy} width="70%"/>
             </span>
-            <br/><br/><br/><br/><br/><br/><br/>
+            <br/>
             <span className='text'>
                 <label onClick={() => navigate("/aboutUs")}>
                     <b>
@@ -23,6 +25,7 @@ const Main = () => {
                 </label>
             </span>
         </div>
+    </div>
     ) 
 }
 

@@ -44,19 +44,19 @@ footer{
     z-index: 2;
     position : relative;
     left: 15%;
-    top: 20%
+  
 }
 
 .imgEasy {
     left: 65%;
-    margin-top: 20%;
+    margin-top: 10%;
     position: absolute;
 }
 
 .text {
     color: blue;
-    margin-left: 50%;
-    top: 150px;
+    margin-left: 45%;
+    top: 50px;
     text-decoration : underline;
 }
 
