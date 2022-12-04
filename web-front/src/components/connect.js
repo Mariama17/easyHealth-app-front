@@ -34,8 +34,7 @@ function Connect() {
                                     </b>
 								</label>
                             <b>
-								{/* <label style={{ color: 'blue', fontSize: '115%' }} onClick={() => history.push('/forgetPassword')}><FormattedMessage id='connexion.body.ForgetMDP' /></label> */}
-								<label style={{ margin: 20, fontSize: '100%' }}>
+								<label onClick={() => navigate('/Resetpwd')} style={{ margin: 20, fontSize: '100%', textDecorationLine : 'underline' }}>
                                     Mot de passe oublié ?
                                 </label>
 							</b>

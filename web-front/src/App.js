@@ -5,6 +5,8 @@ import Main from './components/main';
 import Sign_up from './components/sign_up';
 import Login from './components/login';
 import AboutUs from './components/aboutUs';
+import ForgetPassword from './components/passforgotten';
+import Resetpwd from './components/resetpwd';
 import './css/main.css';
 import {
   BrowserRouter as Router,
@@ -30,6 +32,8 @@ function App() {
               <Route exact path="/login" element={<Login/>} />
               <Route exact path="/inscription" element={<Sign_up/>} />
               <Route exact path="/aboutUs" element={<AboutUs/>} />
+              <Route exact path="/resetpwd" element={<Resetpwd/>} />
+              <Route exact path="/passforgotten" element={<ForgetPassword/>} />
           </Routes>
       </Router>
   );
