@@ -21,7 +21,7 @@ function Connect() {
                         Connectez vous 
                     </b>
 				</p>  
-                <div classN ame='inputLogin'>
+                <div className='inputLogin'>
 					<input id='login' class='form-control' type='text' placeholder="identifiant" style={{ width:"90%", margin:10 }}/> <br/>
                     <input id='password' class='form-control' type='password' placeholder="mot de passe" style={{ width:"90%", margin:10 }}/>
 					<div className='loginForgetMdpDiv'>
@@ -41,7 +41,7 @@ function Connect() {
 						</div>
 					</div>
 				</div>
-                <Button onClick={() => navigate("/login")} style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
+                <Button onClick={() => navigate("/principal")} style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
                     Se connecter
                 </Button>
             </span>
