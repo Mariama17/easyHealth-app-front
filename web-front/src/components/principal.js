@@ -26,7 +26,7 @@ function Principal() {
 					<Grid item xs={12} md={7} sm={7}>
 						<TextField
 							id='search'
-							placeholder='Nom, prenom,...'
+							placeholder='Nom, prenom, pathologie'
 							label='Rechercher un patient'
 							variant='outlined'
 							sx={{ width: '70%' }}
