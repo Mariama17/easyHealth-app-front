@@ -1,15 +1,19 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import img from '../images/suivi-medical.png';
 import img1 from '../images/cloche.png';
-import img2 from '../images/menu.png';
 import footer1 from '../images/facebook.png';
 import footer2 from '../images/twiter.png';
 import footer3 from '../images/linkdin.png';
 import { useNavigate  } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+import MenuStatistic from './menuStatistic';
+import MenuBar from './menuBar';
+import Agenda from './agenda';
+import MyCalendar from './calendar';
+// import UserIcon from './user';
 
 function Principal() {
     const navigate = useNavigate();
@@ -17,20 +21,17 @@ function Principal() {
         <div>
             <div className='headerPrincipal'>
                 <span>
-                    <img src={img2} alt='logos' width='10%' style={{ marginLeft: '1%', marginTop: '15%'}}/>
-                </span>
-                <span>
-                    <img src={img} alt='logos' width='55%' style={{marginLeft: '-150%'}}/>
-                </span>
+                    <img src={img} alt='logos' width='45%' style={{ marginTop: '-5%'}}/>
+                </span> 
                 <Grid container spacing={{ xs: 2, md: 6, sm: 10 }} sx={{ display: 'flex', flexDirection: 'row' }}>
 					<Grid item xs={12} md={7} sm={7}>
 						<TextField
 							id='search'
-							placeholder='Nom, prenom, pathologie'
-							label='Rechercher un patient'
+							placeholder='Rechercher quelque chose...'
+							label='Faire une recherche'
 							variant='outlined'
-							sx={{ width: '70%' }}
-                            style={{marginTop: '5%', marginLeft: '55%'}}
+							sx={{ width: '170%' }}
+                            style={{marginTop: '5%', marginLeft: '-30%'}}
 						/>
 					</Grid>
                 </Grid>
@@ -54,7 +55,21 @@ function Principal() {
                 </span>
             </div>
             <br/>
-            <div className='infos'>
+            <div>
+                <span>  
+                    <MenuBar />
+                </span>
+                <span>
+                    <MenuStatistic />
+                </span>
+                <span>
+                    <Agenda />
+                </span>
+                <span> 
+                    <MyCalendar />
+                </span>
+            </div>
+            {/* <div className='infos'>
                 <span>
                     <label style={{width:100, height: 30, marginTop: 15, margin: 40, color: 'black', border: 'none'}}>
                         Nom
@@ -80,7 +95,7 @@ function Principal() {
                         Supprimer
                     </Button>
                 </span>
-            </div>
+            </div> */}
             <footer className='passforgottenfooter'>
                 <p>
                     Politique relatives aux cookies
