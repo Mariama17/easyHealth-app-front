@@ -13,7 +13,7 @@ import MenuBar from './menuBar';
 import Agenda from './agenda';
 import MyCalendar from './calendar';
 
-function Principal() {
+function Consultations() {
     const navigate = useNavigate();
     return (
         <div>
@@ -94,4 +94,4 @@ function Principal() {
     )
 }
 
-export default Principal;
+export default Consultations;

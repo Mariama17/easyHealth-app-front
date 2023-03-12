@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
+import Button from "react-bootstrap/Button";
 import img from '../images/suivi-medical.png';
 import img1 from '../images/cloche.png';
 import footer1 from '../images/facebook.png';
@@ -8,12 +9,10 @@ import footer3 from '../images/linkdin.png';
 import { useNavigate  } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import MenuStatistic from './menuStatistic';
 import MenuBar from './menuBar';
-import Agenda from './agenda';
-import MyCalendar from './calendar';
+import MenuStatistic from './menuStatistic';
 
-function Principal() {
+function ListPatients() {
     const navigate = useNavigate();
     return (
         <div>
@@ -25,8 +24,8 @@ function Principal() {
 					<Grid item xs={12} md={7} sm={7}>
 						<TextField
 							id='search'
-							placeholder='Rechercher quelque chose...'
-							label='Faire une recherche'
+							placeholder='Nom, prénom, pathologie'
+							label='Rechercher un patient...'
 							variant='outlined'
 							sx={{ width: '170%' }}
                             style={{marginTop: '5%', marginLeft: '-30%'}}
@@ -53,20 +52,39 @@ function Principal() {
                 </span>
             </div>
             <br/>
-            <div>
-                <span>  
-                    <MenuBar />
+            <span>  
+                <MenuBar />
+            </span>
+            <span>
+                <MenuStatistic />
+            </span>
+            <div className='infos'>
+                <span>
+                    <label style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
+                        Nom
+                    </label>
                 </span>
                 <span>
-                    <MenuStatistic />
+                    <label style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
+                        Prénom
+                    </label>
                 </span>
                 <span>
-                    <Agenda />
+                    <label style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
+                        Age
+                    </label>
                 </span>
-                <span> 
-                    <MyCalendar />
+                <span>
+                    <Button onClick={() => navigate("/")} style={{width:100, height: 30, marginTop: 15, margin: 60, background: ' #1846a3 ', color: 'white', border: 'none', cursor: 'pointer'}}>
+                        Pathologie
+                    </Button>
                 </span>
-            </div>
+                <span>
+                    <Button onClick={() => navigate("/")} style={{width:100, height: 30, marginTop: 15, margin: 40, background: ' red ', color: 'white', border: 'none', cursor: 'pointer'}}>
+                        Supprimer
+                    </Button>
+                </span>
+            </div> 
             <footer className='passforgottenfooter'>
                 <p>
                     Politique relatives aux cookies
@@ -94,4 +112,4 @@ function Principal() {
     )
 }
 
-export default Principal;
+export default ListPatients;

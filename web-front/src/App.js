@@ -8,6 +8,8 @@ import AboutUs from './components/aboutUs';
 import ForgetPassword from './components/passforgotten';
 import Resetpwd from './components/resetpwd';
 import Principal from './components/principal';
+import ListPatients from './components/listPatients';
+import Consultation from './components/consultation';
 import './css/main.css';
 import {
   BrowserRouter as Router,
@@ -36,6 +38,8 @@ function App() {
             <Route exact path="/resetpwd" element={<Resetpwd/>} />
             <Route exact path="/passforgotten" element={<ForgetPassword/>} />
             <Route exact path="/principal" element={<Principal/>} />
+            <Route exact path="/listPatients" element={<ListPatients/>} />
+            <Route exact path="/consultation" element={<Consultation/>} />
           </Routes>
       </Router>
   );

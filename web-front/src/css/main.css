@@ -294,8 +294,9 @@ nav {
     padding: 10px;
     width: 54%;
     margin-left: 17.5%;
-    margin-top: -25%;
-  }
+    margin-top: -28%;
+    cursor: pointer;
+}
   
 .menu-bar-horizontal {
     display: flex;
@@ -311,12 +312,12 @@ nav {
 .menu-bar-horizontal a {
     display: flex;
     align-items: center;
-    color: #333;
+    color: black;
     text-decoration: none;
 }
   
 .menu-bar-horizontal a:hover {
-    color: #666;
+    color: blue;
 }
   
 .menu-bar-horizontal a svg {
@@ -326,10 +327,25 @@ nav {
 .menu-bar-title {
     font-size: 24px;
     font-weight: bold;
+    color: rgb(36, 154, 36)
 }
 
 .agenda {
     width: 73%;
     margin-left: 10%;
     margin-top: 3%;
+}
+
+.infos {
+    align-items: center;
+    justify-content: space-around;
+    margin-top:2%;
+    margin-left:17.5%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: #f4f8f9cc;
+    border: 1px solid rgb(64, 64, 197);
+    width: 70%;
+    height: 340px;
 }
