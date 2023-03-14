@@ -11,6 +11,7 @@ import Principal from './components/principal';
 import ListPatients from './components/listPatients';
 import Consultation from './components/consultation';
 import Profil from './components/profil';
+import Documents from './components/documents';
 import './css/main.css';
 import {
   BrowserRouter as Router,
@@ -42,6 +43,7 @@ function App() {
             <Route exact path="/listPatients" element={<ListPatients/>} />
             <Route exact path="/consultation" element={<Consultation/>} />
             <Route exact path="/profil" element={<Profil/>} />
+            <Route exact path="/documents" element={<Documents/>} />
           </Routes>
       </Router>
   );

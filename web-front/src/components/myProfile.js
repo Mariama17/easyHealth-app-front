@@ -57,8 +57,8 @@ function MyProfile() {
       </h3>
       <br/>
       {photo ? (
-        <div>
-          <img src={photo} alt="Photo de profil" width="170" height="150" />
+        <div className='photo-profil'>
+          <img src={photo} alt="Photo de profil" width="170" height="150"/>
           <br/>
           {showDeleteButton && (
             <Button className="profile-delete-button" onClick={handleDeleteClick}>

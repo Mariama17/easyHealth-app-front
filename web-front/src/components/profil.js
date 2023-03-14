@@ -1,17 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import Button from "react-bootstrap/Button";
 import img from '../images/suivi-medical.png';
 import footer1 from '../images/facebook.png';
 import footer2 from '../images/twiter.png';
 import footer3 from '../images/linkdin.png';
-import { useNavigate  } from "react-router-dom";
 import MenuBar from './menuBar';
 import MyProfile from './myProfile';
 import PersonalInformation from './personalInformation'
 
 function ListPatients() {
-    const navigate = useNavigate();
     return (
         <div className='allProfilPage'>
             <div className='headerPrincipal'>

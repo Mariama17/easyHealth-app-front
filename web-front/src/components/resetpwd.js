@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { useNavigate  } from "react-router-dom";
-import Footer from './footer';
-import img from '../images/suivi-medical.png';
 import Button from 'react-bootstrap/Button';
 import footer1 from '../images/facebook.png';
 import footer2 from '../images/twiter.png';

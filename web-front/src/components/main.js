@@ -18,11 +18,11 @@ const Main = () => {
             </span>
             <br/>
             <span className='text'>
-                <label onClick={() => navigate("/aboutUs")}>
+                <span onClick={() => navigate("/aboutUs")}>
                     <b>
                         Qui sommes nous ? 
                     </b>
-                </label>
+                </span>
             </span>
         </div>
     </div>

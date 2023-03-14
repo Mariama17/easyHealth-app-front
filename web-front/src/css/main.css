@@ -59,9 +59,13 @@ footer{
     color: blue;
     margin-left: 45%;
     top: 50px;
-    text-decoration : underline;
+    /* text-decoration : underline; */
+    cursor: pointer;
+    font-size: 20px;
 }
-
+.text:hover {
+    color: rgb(36, 154, 36);
+}    
 .sign {
     width: 100%;
     height: 40%;
@@ -80,7 +84,7 @@ footer{
     margin-top: 20%;    
     margin-left: 30%;
     text-align: center;
-   position: center
+    position: center
 }
 
 .Input {
@@ -351,6 +355,7 @@ nav {
 }
 
 .profil {
+    position: fixed;
     margin-top: -31%;
     margin-left: 25%;
     font-size: 1.2em;
@@ -363,20 +368,23 @@ nav {
     padding: 0.5em 1em;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 5%;
+    margin-left: 15%;
 }
 
 .profile-delete-button:hover {
     background-color: #c9302c;
 }
 
+.photo-profil {
+    margin-left: 10%;
+}
 .p {
     color: rgb(94, 88, 88)
 }
 
 .allInputs {
     margin-left: 60%;
-    margin-top: -30%;
+    margin-top: -33%;
     
 }
 
@@ -412,6 +420,12 @@ button[type="submit"]:hover {
     background-color: #005fa3;
 }
   
-/* .allProfilPage {
-    background-image:url(images/blue-background-health-care.avif)
-} */
+.allProfilPage {
+    /* background-image: url(../images/bg.jpg) */
+    background-color:   #fdfefe;
+}
+
+.childrenUpload{
+    margin-left: 20%;
+    margin-top: 5%;
+}
