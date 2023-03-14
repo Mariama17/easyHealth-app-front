@@ -59,20 +59,14 @@ function ListPatients() {
                 <MenuStatistic />
             </span>
             <div className='infos'>
-                <span>
-                    <label style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
-                        Nom
-                    </label>
+                <span style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
+                    Nom
                 </span>
-                <span>
-                    <label style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
-                        Prénom
-                    </label>
-                </span>
-                <span>
-                    <label style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
-                        Age
-                    </label>
+                <span style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
+                    Prénom
+                </span>     
+                <span style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
+                    Age
                 </span>
                 <span>
                     <Button onClick={() => navigate("/")} style={{width:100, height: 30, marginTop: 15, margin: 60, background: ' #1846a3 ', color: 'white', border: 'none', cursor: 'pointer'}}>

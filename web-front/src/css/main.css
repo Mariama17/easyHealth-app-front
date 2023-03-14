@@ -349,3 +349,69 @@ nav {
     width: 70%;
     height: 340px;
 }
+
+.profil {
+    margin-top: -31%;
+    margin-left: 25%;
+    font-size: 1.2em;
+}
+
+.profile-delete-button {
+    background-color: #d9534f;
+    border: none;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+.profile-delete-button:hover {
+    background-color: #c9302c;
+}
+
+.p {
+    color: rgb(94, 88, 88)
+}
+
+.allInputs {
+    margin-left: 60%;
+    margin-top: -30%;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 5px;
+}
+  
+label {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin: 5px;
+    color:rgb(36, 154, 36)
+} 
+  
+button[type="submit"] {
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 50%;
+}
+  
+button[type="submit"]:hover {
+    background-color: #005fa3;
+}
+  
+/* .allProfilPage {
+    background-image:url(images/blue-background-health-care.avif)
+} */
