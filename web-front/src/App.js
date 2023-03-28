@@ -7,11 +7,13 @@ import Login from './components/login';
 import AboutUs from './components/aboutUs';
 import ForgetPassword from './components/passforgotten';
 import Resetpwd from './components/resetpwd';
-import Principal from './components/principal';
 import ListPatients from './components/listPatients';
 import Consultation from './components/consultation';
 import Profil from './components/profil';
 import Documents from './components/documents';
+import Contact from './components/contact';
+import Pathologie from './components/pathologie';
+import Data from './components/data';
 import './css/main.css';
 import {
   BrowserRouter as Router,
@@ -39,11 +41,13 @@ function App() {
             <Route exact path="/aboutUs" element={<AboutUs/>} />
             <Route exact path="/resetpwd" element={<Resetpwd/>} />
             <Route exact path="/passforgotten" element={<ForgetPassword/>} />
-            <Route exact path="/principal" element={<Principal/>} />
             <Route exact path="/listPatients" element={<ListPatients/>} />
             <Route exact path="/consultation" element={<Consultation/>} />
             <Route exact path="/profil" element={<Profil/>} />
             <Route exact path="/documents" element={<Documents/>} />
+            <Route exact path="/contact" element={<Contact/>} />
+            <Route exact path="/pathologie" element={<Pathologie/>} />
+            <Route exact path="/data" element={<Data/>} />
           </Routes>
       </Router>
   );

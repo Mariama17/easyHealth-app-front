@@ -19,14 +19,33 @@ p {
 }
 
 header {
-    width: 100%;
-    height: 40%;
-    color: white;
-    text-align: center;
     position: absolute;
-    display: flex;
-    z-index: 1;
-    background: linear-gradient(rgb(36, 154, 36), 70%, rgb(64, 64, 197));
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(121, 154, 77, 0.95) -8.72%, rgba(47, 82, 151, 0.95) 108.18%);
+}
+
+.headerAboutUs {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    background: linear-gradient(180deg, rgba(121, 154, 77, 0.95) -8.72%, rgba(47, 82, 151, 0.95) 108.18%);
+}
+
+.headerLoginPage {
+    top: 0px; 
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(180deg, rgba(121, 154, 77, 0.95) -8.72%, rgba(47, 82, 151, 0.95) 108.18%);
+}
+
+.headerProfil {
+    top: 0px; 
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(180deg, rgba(121, 154, 77, 0.95) -8.72%, rgba(47, 82, 151, 0.95) 108.18%);
 }
 
 footer{
@@ -39,33 +58,10 @@ footer{
     align-items: center;
     position: fixed;
     color: white;
-    background-color: #42aa35;
+    background-color: #3A6898;
     border-top: 0.1px solid #799A4D;
 }
-
-.img {
-    z-index: 2;
-    position : relative;
-    left: 15%;
-}
-
-.imgEasy {
-    left: 65%;
-    margin-top: 10%;
-    position: absolute;
-}
-
-.text {
-    color: blue;
-    margin-left: 45%;
-    top: 50px;
-    /* text-decoration : underline; */
-    cursor: pointer;
-    font-size: 20px;
-}
-.text:hover {
-    color: rgb(36, 154, 36);
-}    
+  
 .sign {
     width: 100%;
     height: 40%;
@@ -73,7 +69,6 @@ footer{
     color: white;
     position: absolute;
     display: flex;
-    font-size: 125%;
     top:0px
 }
 
@@ -88,12 +83,8 @@ footer{
 }
 
 .Input {
-    margin-top: 20%;
-    text-align: center;
-}
-
-.sign_up {
-    text-align: center;
+    margin-top: 120%;
+    margin-left: -370%; 
 }
 
 .form-control {
@@ -114,7 +105,7 @@ footer{
 
 .login {
     width: 100%;
-    background: linear-gradient(rgb(36, 154, 36), 70%, rgb(64, 64, 197));
+    background: linear-gradient(180deg, #7F9F56 0%, #3A6898 88.02%), linear-gradient(180deg, rgba(97, 154, 77, 0.95) 0%, rgba(97, 154, 77, 0.475) 0.01%, rgba(97, 154, 77, 0) 4.17%, rgba(97, 154, 77, 0) 71.35%);
     color: white;
     position: absolute;
     top: 0px;
@@ -126,25 +117,16 @@ footer{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top:-30%;
+    margin-top: 10%;
     margin-left: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background: #becedc;
-    border: 3px solid #F4F5F7;
     width: 30%;
     height: 400px;
 }
 
-.loginForgetMdpDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 10%;
-} 
 
 .label{
     color: hsla(241, 96%, 47%, 0.925);
@@ -152,9 +134,16 @@ footer{
 }
 
 .img_assistante-medicale {
-    margin-top: 22%;
-    margin-left: 5%;
-    display: flex;
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.inputLogin{
+    cursor: pointer;
+    position: absolute;
+    margin-left: 11%;
+    margin-top: -1%;
 }
 
 .loginFooter  {
@@ -173,7 +162,7 @@ footer{
 
 .aboutUs{
     text-align: center;
-    font-size: 15px;
+    margin-top: 12%;
 }
 
 .headerPassforgotten {
@@ -183,24 +172,7 @@ footer{
     position: absolute;
     display: flex;
     background: #ecf0f1;
-}
-
-.passwd {
-    text-align: center;
-}
-
-.passforgottenfooter {
-    width: 100%;
-    height: 60px;
-    font-size: 80%;
-    bottom:0%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: fixed;
-    color: white;
-    background-color: rgb(64, 64, 197);
-    border-top: 0.1px solid #4452ebd1;
+    top: 0px
 }
 
 .reset {
@@ -238,6 +210,7 @@ footer{
     color: white;
     position: absolute;
     display: flex;
+    top: 0px
 }
 
 .userpicture {
@@ -246,10 +219,15 @@ footer{
 }
 
 .menu-bar {
-    display: flex;
-    align-items: center;
-    margin-top: 8%;
+    display: flex; 
+    align-items: center; 
+    margin-top: 7.7%;
     cursor: pointer;
+    background: rgba(58, 104, 152, 0.11);
+    border: 1px solid #719458;
+    position: absolute;
+    width: 20%;
+    height: 70%;
 }
   
 .menu-bar svg {
@@ -267,7 +245,7 @@ footer{
     display: flex;
     align-items: center;
     padding: 10px;
-    margin: 25px;
+    margin: 30px;
     border-bottom: 1px solid #ddd;
 }
   
@@ -286,7 +264,7 @@ footer{
 
 .container {
     width: 25%;
-    margin-top: -48%;
+    margin-top: -40%;
     margin-left: 73%;
 }
   
@@ -335,28 +313,51 @@ nav {
 }
 
 .agenda {
-    width: 73%;
-    margin-left: 10%;
-    margin-top: 3%;
+    width: 70%;
+    margin-left: 13%;
+    margin-top: 10%;
 }
 
 .infos {
-    align-items: center;
-    justify-content: space-around;
-    margin-top:2%;
-    margin-left:17.5%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background: #f4f8f9cc;
-    border: 1px solid rgb(64, 64, 197);
+    position: absolute;
     width: 70%;
-    height: 340px;
+    height: 60%;
+    left: 25%;
+    top: 25%;
+    overflow-y: scroll;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 0px 1px rgba(152, 161, 178, 0.1), 0px 1px 4px rgba(69, 75, 87, 0.12), 0px 0px 2px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
 }
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 8px;
+    position: absolute;
+    width: 40px;
+    height: 32px;   
+    left: 2%;
+    top: 3%;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(70, 79, 96, 0.16), 0px 2px 5px rgba(89, 96, 120, 0.1);
+    border-radius: 6px;
+}
+
+/* .tr-td {
+    background-color: midnightblue;
+    color: #fff;
+    text-align: center;
+}
+
+.tr-td:nth-child(even){
+    background-color: #f3f3f3;
+  } */
 
 .profil {
     position: fixed;
-    margin-top: -31%;
+    margin-top: 10%;
     margin-left: 25%;
     font-size: 1.2em;
 }
@@ -368,7 +369,8 @@ nav {
     padding: 0.5em 1em;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 15%;
+    margin-top: 150%;
+    width: 45%;
 }
 
 .profile-delete-button:hover {
@@ -377,16 +379,31 @@ nav {
 
 .photo-profil {
     margin-left: 10%;
+    margin-top: 40%;
 }
+
 .p {
     color: rgb(94, 88, 88)
 }
 
 .allInputs {
     margin-left: 60%;
-    margin-top: -33%;
+    margin-top: 8%;
     
 }
+
+.cadre {
+    margin-left: 50%;
+    margin-top: 12%;
+    padding: 20px;
+    position: absolute;
+    width: 40%;
+    height: 55%;
+    background: #FFFFFF;
+    border: 2px dashed #799A4D;
+    border-radius: 30px;
+    
+  }
 
 form {
     display: flex;
@@ -426,6 +443,190 @@ button[type="submit"]:hover {
 }
 
 .childrenUpload{
-    margin-left: 20%;
-    margin-top: 5%;
+    margin-left: 30%;
+    /* margin-top: 10%; */
 }
+
+.TitleContact {
+    text-align: center;
+    margin-top: 25%;
+}
+
+.form-control2 {
+    display: inline;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    align-items: center;
+}
+.Inputs {
+    margin-left: 15%;
+}
+
+.profile-card {
+    display: flex;
+    margin-left: 25%;
+    margin-top: -40%;
+}
+  
+.profile-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Pprofil {
+    margin-left: 25%;
+    margin-top: 10%;
+}
+  
+.profile-picture img {
+    width: 200px;
+    height: 170px;
+    border-radius: 50%;
+}
+  
+.profile-details {
+    display: flex;
+    flex-direction: column;
+}
+  
+.profile-details p {
+    margin-bottom: 10px;
+}
+  
+.profile-details p:last-child {
+    margin-bottom: 0;
+}
+
+.profile-detail {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+}
+  
+.profile-detail p {
+    margin-bottom: 10px;
+}
+  
+.profile-detail p:last-child {
+    margin-bottom: 0;
+}
+  
+@media (min-width: 768px) {
+    .doctor-profile {
+      flex-direction: row;
+      justify-content: space-between;
+}
+  
+    .logo-container {
+        margin-top: 0;
+    }
+
+    .profile-picture {
+        margin-right: 50px;
+    }
+}
+  
+.profile-details-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 50%;
+    margin-top: -10%;
+    margin-left: 45%;
+}
+  
+.profile-details {
+    width: 40%;
+}
+
+.graph {
+    margin-left: 20%;
+}
+
+.diagramme {
+    margin-left: 60%;
+    margin-top: -20%;
+}
+
+.btnresetPassword:hover {
+    background-color: #005fa3;
+}
+
+.btn1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 161px;
+    position: absolute;
+    width: 10%;
+    height: 8%;
+    margin-left: 28%;
+    margin-top: 6%;
+    background: #3A6898;
+    border-radius: 30px;
+}
+
+.btn2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 161px;
+    position: absolute;
+    width: 15%;
+    height: 8%;
+    margin-left: 51%;
+    margin-top: 6%;
+    background: #719458;
+    border-radius: 30px;
+}
+
+.btn3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 161px;
+    position: absolute;
+    width: 18%;
+    height: 8%;
+    margin-left: 77%;
+    margin-top: 6%;
+    background: #3A6898;
+    border-radius: 30px;
+}
+
+.titleDataPage {
+    position: absolute;
+    left: 40%;
+    top: 25%;
+    font-family: 'DM Sans';
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #719458;
+}
+
+/* .btnMesure {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 161px;
+    position: absolute;
+    width: 10%;
+    height: 8%;
+    margin-left: 28%;
+    margin-top: 6%;
+    background: #3A6898;
+    border-radius: 30px;
+} */

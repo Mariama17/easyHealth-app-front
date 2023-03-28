@@ -1,32 +1,35 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import Button from "react-bootstrap/Button";
 import img from '../images/easy-health.png';
 import Connect from './connect';
 import { useNavigate  } from "react-router-dom";
+import { Button } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
 function Login() {
     const navigate = useNavigate();
     return (
-        <div>
-            <header className='login'>
-                    <span>
-                        <img src={img}  width="40%" style={{marginLeft: "110%"}} />
-                    </span>
-                    <span style={{marginLeft: "30%", alignItems: "center", marginTop: 20}}>
-                        <span style={{margin:15}}>
-                            <Button onClick={() => navigate("/inscription")} style={{width:200, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
-                                Vous n'avez pas de compte ?
-                            </Button> 
-                        </span>
-                        <span>
-                            <Button onClick={() => navigate("/home")} style={{width:100, height: 30, background: ' white ', color: '#1846a3', border: 'none'}}>
-                                Accueil
-                            </Button>
-                        </span>
-                    </span>
-            </header>
-            <Connect/>
+        <div className='headerLoginPage'>
+            <span style={{position: 'absolute', marginLeft: '42%', top: '0px'}}>
+                <img src={img} width="30%" />
+            </span>
+                <Grid item style={{marginLeft: '70%', marginTop: '1%'}}>
+                    <Button onClick={() => navigate("/aboutUs")}>
+                        <Typography component='p' variant='button' color='white' cursor='pointer' fontFamily= 'Work Sans' fontStyle='normal' >
+                            <b>
+                                Qui nous sommes?
+                            </b>
+					    </Typography> 
+                    </Button>
+                    <Button onClick={() => navigate("/contact")}>
+                        <Typography component='p' variant='button' color='white' cursor='pointer'  fontFamily= 'Work Sans' fontStyle='normal' >
+                            <b>
+                                Nous contacter
+                            </b>
+					    </Typography> 
+                    </Button>
+                </Grid> 
+        <Connect/>
         </div>
     )
 }

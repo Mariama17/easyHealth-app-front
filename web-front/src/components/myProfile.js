@@ -45,24 +45,20 @@ function MyProfile() {
 
   return (
     <div className='profil'>
-      <h2>  
-        Mon profil
-      </h2>
-      <p className='p'>
-        Gérez les paramétres de votre profil
-      </p>
-      <br/><br/><br/>
-      <h3>
-        Votre photo de profil
+      <h3 style={{color: '#3A6898', marginLeft: '-20%'}}>  
+        Mon compte
       </h3>
-      <br/>
       {photo ? (
         <div className='photo-profil'>
-          <img src={photo} alt="Photo de profil" width="170" height="150"/>
+          <h4>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; John doe
+          </h4>
+          <br/>
+          <img src={photo} alt="Photo de profil" width="200" height="150"/>
           <br/>
           {showDeleteButton && (
-            <Button className="profile-delete-button" onClick={handleDeleteClick}>
-              Supprimer
+            <Button className="profile-delete-button" onClick={handleDeleteClick} style={{marginLeft: '25%'}}>
+                Supprimer
             </Button>
           )}
         </div>

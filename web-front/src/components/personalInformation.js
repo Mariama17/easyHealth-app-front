@@ -2,13 +2,13 @@ import { borderRadius } from '@mui/system';
 import React, { useState } from 'react';
 
 function PersonalInformation() {
-    const [name, setName] = useState('Malia KANDE');
-    const [address, setAddress] = useState('38 rue Molière, Ivry sur Seine');
-    const [phone, setPhone] = useState('06.06.06.06.06');
-    const [specialty, setSpecialty] = useState('Cardiologue');
+    const [age, setAge] = useState('Age: 45');
+    const [address, setAddress] = useState('Adresse mail: john.doe@gmail.com');
+    const [phone, setPhone] = useState('Téléphone: 06.66.66.66.29' );
+    const [specialty, setSpecialty] = useState('Spécialité: Cardiologue');
 
-    const handleNameChange = (event) => {
-        setName(event.target.value);
+    const handleAgeChange = (event) => {
+        setAge(event.target.value);
     };
 
     const handleAddressChange = (event) => {
@@ -25,55 +25,52 @@ function PersonalInformation() {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        //Envoyer les informations modifiées au serveur ici
     };
 
     return (
-        <form onSubmit={handleFormSubmit}>
-        <div className='allInputs'>
-            <div>
-                <label htmlFor="name">Nom Prénom</label>
-                <input
-                    style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '10px', fontSize: '16px', width: '150%'}}
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={handleNameChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="address">Adresse Postale</label>
-                <input
-                    style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '10px', fontSize: '16px', width: '150%'}}
-                    type="text"
-                    id="address"
-                    value={address}
-                    onChange={handleAddressChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="phone">Téléphone</label>
-                <input
-                    style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '10px', fontSize: '16px', width: '150%'}}
-                    type="tel"
-                    id="phone"
-                    value={phone}
-                    onChange={handlePhoneChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="specialty">Spécialité</label>
-                <input
-                    style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '10px', fontSize: '16px', width: '150%'}}
-                    type="text"
-                    id="specialty"
-                    value={specialty}
-                    onChange={handleSpecialtyChange}
-                />
-            </div>
-            <button type="submit">Modifier</button>
+        <div className="cadre">
+            <form onSubmit={handleFormSubmit}>
+                <div>
+                    <div >
+                        <input 
+                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '20px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
+                            type="age"
+                            id="age"
+                            value={age}
+                            onChange={handleAgeChange}
+                        />
+                        </div>
+                    <div>
+                        <input
+                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '20px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
+                            type="text"
+                            id="address"
+                            value={address}
+                            onChange={handleAddressChange}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '20px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
+                            type="tel"
+                            id="phone"
+                            value={phone}
+                            onChange={handlePhoneChange}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '20px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
+                            type="text"
+                            id="specialty"
+                            value={specialty}
+                            onChange={handleSpecialtyChange}
+                        />
+                    </div>
+                    <button style={{marginLeft: '90%'}} type="submit">Modifier</button>
+                </div>
+            </form>
         </div>
-        </form>
     );
 }
 

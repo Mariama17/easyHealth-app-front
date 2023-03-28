@@ -1,78 +1,57 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import Button from "react-bootstrap/Button";
 import img from '../images/assistante-medicale.jpg';
-import footer1 from '../images/facebook.png';
-import footer2 from '../images/twiter.png';
-import footer3 from '../images/linkdin.png';
-import { useNavigate  } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { Button, Typography } from '@mui/material';
+import Footer from './footer'
 
 function Connect() {
     const navigate = useNavigate();
     return (
-        <div>
+        <div style={{backgroundColor: '#f1f3f5'}}>
 			<span className= 'img_assistante-medicale'>
-				<img src={img} width="46%"/>
+				<img src={img} width="30%"/>
 			</span>
             <span className='loginBody'>
-				<p style={{ fontSize: '150%', textAlign: 'center'}}>
-					<b>
-                        Connectez vous 
-                    </b>
-				</p>  
+				<div>
+					<p style={{ fontSize: '150%', marginTop: '1%'}}>
+						<b>
+                        	Connectez vous 
+                    	</b>
+					</p> 
+				</div> 
                 <div className='inputLogin'>
-					<input id='login' class='form-control' type='text' placeholder="identifiant" style={{ width:"90%", margin:10 }}/> <br/>
-                    <input id='password' class='form-control' type='password' placeholder="mot de passe" style={{ width:"90%", margin:10 }}/>
-					<div className='loginForgetMdpDiv'>
-						<div style={{ display: 'flex', alignItems: 'center' }}>
-							<input type='checkbox' name='stayConnect' />
-							&nbsp;&nbsp;
-								<label for='stayConnect' class='text-primary' className='label'>
-									<b>
-                                        Restez connecté
-                                    </b>
-								</label>
-                            <b>
-								<label onClick={() => navigate('/Resetpwd')} style={{ margin: 20, fontSize: '100%', textDecorationLine : 'underline' }}>
-                                    Mot de passe oublié ?
-                                </label>
-							</b>
-						</div>
-					</div>
+					<input 
+						id='login' 
+						class='form-control' 
+						type='text' 
+						placeholder="e-mail" 
+						style={{ width:"60%", margin:10 }}
+					/> 
+                    <input 
+						id='password' 
+						class='form-control' 
+						type='password' 
+						placeholder="mot de passe" 
+						style={{ width:"60%", margin:10 }}
+					/>
+					<label onClick={() => navigate('/Resetpwd')} style={{ textDecorationLine : 'underline', cursor: 'pointer', color: 'black', marginLeft: '13%'}}>
+                        <b>
+							Mot de passe oublié ?
+						</b>
+                    </label>
 				</div>
-                <Button onClick={() => navigate("/principal")} style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
-                    Se connecter
-                </Button>
+				<div style={{marginTop: '10%'}}>
+                	<Button onClick={() => navigate("/consultation")} style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none'}}>
+                    	<Typography>
+                        	Se connecter
+                    	</Typography>
+                	</Button>
+				</div>
             </span>
-			<footer className='loginFooter'>
-            <p>Politique relatives aux cookies</p>
-            <a
-                href="https://www.facebook.com"
-                title="Rejoignez-nous sur Facebook"
-            >
-                <img src={footer1} width="30px"/>
-            </a>
-
-            <a
-                href="https://twitter.com/"
-                title="Rejoignez-nous sur Twitter"
-            >
-                <img src={footer2} width="30px"/>
-            </a>
-
-            <a
-                href="https://www.linkedin.com"
-                title="Rejoignez-nous sur LinkedIn"
-            >
-                <img src={footer3} width="30px"/>
-            </a>
-        </footer>
+			<Footer/>
         </div>
     )
 }
 
 export default Connect
-
-
-

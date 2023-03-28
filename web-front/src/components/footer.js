@@ -1,13 +1,22 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import footer1 from '../images/facebook.png';
-import footer2 from '../images/twiter.png';
-import footer3 from '../images/linkdin.png';
+import footer1 from '../images/f.png';
+import footer2 from '../images/logo-de-twitter.jpg';
+import footer3 from '../images/linkedin.png';
+import Typography from '@mui/material/Typography';
+import { Link } from '@mui/material';
 
 const Footer = () => {
     return (
         <footer>
-            <p>Politique relatives aux cookies</p>
+             <Typography variant='body2' color='white' sx={{ mt: 1 }}>
+			    {'Copyright © '}
+			    <Link color='inherit' href='https://www.linkedin.com'>
+			        easyHealth
+			    </Link>{' '}
+			    {new Date().getFullYear()}
+				{'.'}
+			</Typography> 
             <a
                 href="https://www.facebook.com"
                 title="Rejoignez-nous sur Facebook"

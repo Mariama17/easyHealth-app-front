@@ -1,107 +1,77 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import Button from "react-bootstrap/Button";
-import img from '../images/suivi-medical.png';
-import img1 from '../images/cloche.png';
-import footer1 from '../images/facebook.png';
-import footer2 from '../images/twiter.png';
-import footer3 from '../images/linkdin.png';
-import { useNavigate  } from "react-router-dom";
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
+import img from '../images/easy-health.png';
+import filter from '../images/filter.png';
+import Footer from './footer';
 import MenuBar from './menuBar';
-import MenuStatistic from './menuStatistic';
+import { FaTrash } from 'react-icons/fa';
+import { TextField, Grid, Button } from '@mui/material';
+// import Button from "react-bootstrap/Button";
+import { useNavigate  } from "react-router-dom";
 
 function ListPatients() {
     const navigate = useNavigate();
     return (
-        <div>
-            <div className='headerPrincipal'>
-                <span>
-                    <img src={img} alt='logos' width='45%' style={{ marginTop: '-5%'}}/>
-                </span> 
-                <Grid container spacing={{ xs: 2, md: 6, sm: 10 }} sx={{ display: 'flex', flexDirection: 'row' }}>
-					<Grid item xs={12} md={7} sm={7}>
-						<TextField
-							id='search'
-							placeholder='Nom, prénom, pathologie'
-							label='Rechercher un patient...'
-							variant='outlined'
-							sx={{ width: '170%' }}
-                            style={{marginTop: '5%', marginLeft: '-30%'}}
-						/>
-					</Grid>
-                </Grid>
-                <span >
-                    <img 
-                        style={{marginTop: "85%", marginLeft: "-350%"}}
-                        class="userpicture defaultuserpic" 
-                        src={img1}  
-                        witdh="35" 
-                        height="35"
-                    /> 
-                </span>
-                <span class="avatars">
-                    <img 
-                        style={{marginTop: "85%", marginLeft: "-200%"}}
-                        class="userpicture defaultuserpic" 
-                        src="https://moodle.esme.fr/theme/image.php/moove/core/1669880320/u/f2"  
-                        witdh="35" 
-                        height="35"
-                    /> 
+        <div className='allProfilPage'>
+            <div className='headerProfil'>
+                <span style={{position: 'absolute', marginLeft: '45%', top: '0px'}}>
+                    <img src={img} width="20%" />
                 </span>
             </div>
             <br/>
             <span>  
                 <MenuBar />
             </span>
-            <span>
-                <MenuStatistic />
-            </span>
+        
+            <br/>
             <div className='infos'>
-                <span style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
-                    Nom
-                </span>
-                <span style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
-                    Prénom
-                </span>     
-                <span style={{width:100, height: 30, marginTop: 15, margin: 60, color: 'black', border: 'none'}}>
-                    Age
-                </span>
-                <span>
-                    <Button onClick={() => navigate("/")} style={{width:100, height: 30, marginTop: 15, margin: 60, background: ' #1846a3 ', color: 'white', border: 'none', cursor: 'pointer'}}>
-                        Pathologie
+                <div>
+                    <span className='btn'>
+                        <img src={img} width="16px"/>
+                    </span>
+                    <Grid container spacing={{ xs: 1, md: 2, sm: 5 }} sx={{ display: 'flex', flexDirection: 'row' }}>
+				        <Grid item xs={12} md={7} sm={7}>
+ 					        <TextField
+						        id='search'
+						        placeholder='Nom, prénom, pathologie'
+ 						        label='Rechercher un patient...'
+					            variant='outlined'
+ 						        sx={{ width: '100%' }}
+                                style={{ marginLeft: '20%', marginTop: '1%'}}
+ 					        />
+				        </Grid>
+                    </Grid>
+                    <Button onClick={() => navigate("/")} style={{width:200, height: 30,  background: ' #1846a3 ', color: 'white', border: 'none', cursor: 'pointer', marginLeft: '75%', marginTop: '-10%'}}>
+                        Ajouter un patient
                     </Button>
-                </span>
-                <span>
-                    <Button onClick={() => navigate("/")} style={{width:100, height: 30, marginTop: 15, margin: 40, background: ' red ', color: 'white', border: 'none', cursor: 'pointer'}}>
-                        Supprimer
-                    </Button>
-                </span>
+                </div>
+                <div className='tr-td'>
+                    {/* <span className='btn'>
+                        <img src={img} width="16px"/>
+                    </span> */}
+                    <span style={{margin: 50}}>
+                        cadre-
+                    </span>
+                    <span style={{margin: 50}}>
+                        Nom
+                    </span>
+                    <span style={{ margin: 50}}>
+                        Prénom
+                    </span>     
+                    <span style={{margin: 50}}>
+                        Age
+                    </span>
+                    <span>
+                        <Button onClick={() => navigate("/pathologie")} style={{width:80, height: 30, marginTop: 15, margin: 50, background: '#F0F1FA', color: 'blue', border: 'none', cursor: 'pointer'}}>
+                            Ouvrir
+                        </Button>
+                    </span>
+                    <span style={{margin: 60, color: '#d9534f'}}>
+                        <FaTrash />
+                    </span>
+                </div>
             </div> 
-            <footer className='passforgottenfooter'>
-                <p>
-                    Politique relatives aux cookies
-                </p>
-                <a
-                    href="https://www.facebook.com"
-                    title="Rejoignez-nous sur Facebook"
-                >
-                    <img src={footer1} width="30px"/>
-                </a>
-                <a
-                    href="https://twitter.com/"
-                    title="Rejoignez-nous sur Twitter"
-                >
-                    <img src={footer2} width="30px"/>
-                </a>
-                <a
-                    href="https://www.linkedin.com"
-                    title="Rejoignez-nous sur LinkedIn"
-                >
-                    <img src={footer3} width="30px"/>
-                </a>
-            </footer>
+            <Footer/>
         </div>
     )
 }
