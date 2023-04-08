@@ -25,7 +25,7 @@ function Connect() {
 						id='login' 
 						class='form-control' 
 						type='text' 
-						placeholder="e-mail" 
+						placeholder="adresse e-mail" 
 						style={{ width:"60%", margin:10 }}
 					/> 
                     <input 

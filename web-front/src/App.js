@@ -14,6 +14,7 @@ import Documents from './components/documents';
 import Contact from './components/contact';
 import Pathologie from './components/pathologie';
 import Data from './components/data';
+import Stockage from './components/stockage';
 import './css/main.css';
 import {
   BrowserRouter as Router,
@@ -48,6 +49,7 @@ function App() {
             <Route exact path="/contact" element={<Contact/>} />
             <Route exact path="/pathologie" element={<Pathologie/>} />
             <Route exact path="/data" element={<Data/>} />
+            <Route exact path="/stockage" element={<Stockage/>} />
           </Routes>
       </Router>
   );

@@ -3,6 +3,7 @@ import React from 'react';
 import img from '../images/easy-health.png';
 import MenuBar from './menuBar';
 import Footer from './footer';
+import BackButton from './BackButton';
 import { Button } from '@mui/material';
 import Line  from '../images/Line12.png';
 import courbe from '../images/courbe.png';
@@ -22,12 +23,15 @@ function Data() {
             <span>  
                 <MenuBar />
             </span>
+            <div style={{marginTop: '10%', marginLeft: '25%'}}>
+                <BackButton/>
+            </div>
             <div className='titleDataPage'>
                 <h1>
                     Suivi & évolution du patient
                 </h1>
             </div>
-            <div style={{marginTop: '25%', marginLeft: '15%'}}>
+            <div style={{marginTop: '10%', marginLeft: '15%'}}>
                 <span style={{margin: 150}}>
                     <img src={Rectangle} width="20%" />
                </span>
@@ -37,7 +41,6 @@ function Data() {
                 </span>
             </div>
             <div className='btnMesure'>
-                
                     {/* <Button style={{color: 'white'}}>
                         MESURES
                     </Button> */}
