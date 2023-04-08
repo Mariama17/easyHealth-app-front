@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+import {React, useState } from 'react';
 import img from '../images/easy-health.png';
 import filter from '../images/filter.png';
 import Footer from './footer';
@@ -9,8 +9,19 @@ import { TextField, Grid, Button } from '@mui/material';
 // import Button from "react-bootstrap/Button";
 import { useNavigate  } from "react-router-dom";
 
-function ListPatients() {
+function ListPatients({ onSearch }) {
     const navigate = useNavigate();
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+    };
+
+    const handleFormSubmit = (event) => {
+    event.preventDefault();
+    onSearch(searchTerm);
+  };
     return (
         <div className='allProfilPage'>
             <div className='headerProfil'>
@@ -25,52 +36,76 @@ function ListPatients() {
         
             <br/>
             <div className='infos'>
-                <div>
+                <div className='tcadre'>
                     <span className='btn'>
                         <img src={img} width="16px"/>
                     </span>
-                    <Grid container spacing={{ xs: 1, md: 2, sm: 5 }} sx={{ display: 'flex', flexDirection: 'row' }}>
-				        <Grid item xs={12} md={7} sm={7}>
- 					        <TextField
-						        id='search'
-						        placeholder='Nom, prénom, pathologie'
- 						        label='Rechercher un patient...'
-					            variant='outlined'
- 						        sx={{ width: '100%' }}
-                                style={{ marginLeft: '20%', marginTop: '1%'}}
- 					        />
-				        </Grid>
-                    </Grid>
-                    <Button onClick={() => navigate("/")} style={{width:200, height: 30,  background: ' #1846a3 ', color: 'white', border: 'none', cursor: 'pointer', marginLeft: '75%', marginTop: '-10%'}}>
-                        Ajouter un patient
-                    </Button>
+                    <span className='searchBar'>
+                        <input 
+                            style={{width: '100%', height: '100%'}}
+                            type="text" 
+                            placeholder="Rechercher un patient" 
+                            value={searchTerm} 
+                            onChange={handleInputChange} 
+                    />
+                    </span>
+                    <span>
+                        <Button style={{width:200, height: 30,  background: ' #1846a3 ', color: 'white', border: 'none', cursor: 'pointer', marginLeft: '75%', marginTop: '0.5%'}}>
+                            Ajouter un patient
+                        </Button>
+                    </span>
+                    {/* <div className='tableau' style={{marginTop: '3%'}}>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Age</th>
+                                <th>Pathologie</th>
+                                <th>Profil</th>
+                            </tr>
+                        </thead> */}
+                    <div style={{marginTop: '3%'}}>
+                        <span style={{margin: 50}}>
+                            Nom
+                        </span>
+                        <span style={{ margin: 50}}>
+                            Prénom
+                        </span>     
+                        <span style={{margin: 50}}>
+                            Age
+                        </span>
+                        <span style={{margin: 50}}>
+                            Pathologie
+                        </span>
+                        <span style={{margin: 50}}>
+                            Profil
+                        </span> 
+                    </div>
                 </div>
-                <div className='tr-td'>
-                    {/* <span className='btn'>
-                        <img src={img} width="16px"/>
-                    </span> */}
+                <div style={{marginTop: '10%'}}>
                     <span style={{margin: 50}}>
-                        cadre-
+                        KANDE
                     </span>
-                    <span style={{margin: 50}}>
-                        Nom
-                    </span>
-                    <span style={{ margin: 50}}>
-                        Prénom
+                    <span style={{ margin: 40}}>
+                        Mariama
                     </span>     
                     <span style={{margin: 50}}>
-                        Age
+                        48
                     </span>
+                    <span style={{ margin: 55}}>
+                        Diabete
+                    </span>   
                     <span>
                         <Button onClick={() => navigate("/pathologie")} style={{width:80, height: 30, marginTop: 15, margin: 50, background: '#F0F1FA', color: 'blue', border: 'none', cursor: 'pointer'}}>
                             Ouvrir
                         </Button>
                     </span>
-                    <span style={{margin: 60, color: '#d9534f'}}>
+                    <span style={{margin: 50, color: '#d9534f'}}>
                         <FaTrash />
-                    </span>
+                    </span> 
                 </div>
             </div> 
+            
             <Footer/>
         </div>
     )
