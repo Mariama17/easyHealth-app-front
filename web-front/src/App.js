@@ -40,6 +40,7 @@ function App() {
     const [userEmail, setUserEmail] = useState(null);
 
   return (
+      
       <UserContext.Provider value={{ userEmail, setUserEmail }}>
       <Router>
           <Routes>
