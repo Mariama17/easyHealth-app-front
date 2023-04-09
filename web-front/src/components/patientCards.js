@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Card, CardActionArea, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import UserContext from "./UserContext"
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -19,17 +20,18 @@ const useStyles = makeStyles(() => ({
 function PatientCards() {
     const classes = useStyles();
     const [patients, setPatients] = useState([]);
+    const { userEmail } = useContext(UserContext);
 
     useEffect(() => {
         axios
-            .get('http://localhost:8080/patients/medecin/john.doe@gmail.com')
+            .get('http://localhost:8080/patients/medecin/' + userEmail)
             .then((response) => {
                 setPatients(response.data);
             })
             .catch((error) => {
                 console.error('Erreur lors de la récupération des données : ', error);
             });
-    }, []);
+    }, [userEmail]);
 
     const handleClick = () => {
         // Navigation vers le composant Dashboard

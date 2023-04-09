@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import img from '../images/assistante-medicale.jpg';
 import { Button, Typography } from '@mui/material';
 import Footer from './footer';
+import UserContext from './UserContext';
 
 function Connect() {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const { setUserEmail } = useContext(UserContext);
+
+
 
 	const handleLogin = async () => {
 		try {
@@ -17,6 +21,7 @@ function Connect() {
 				motDePasse: password,
 			});
 			console.log(response.data);
+			setUserEmail(email);
 			navigate('/consultation');
 		} catch (error) {
 			console.error('Erreur lors de la connexion : ', error);
