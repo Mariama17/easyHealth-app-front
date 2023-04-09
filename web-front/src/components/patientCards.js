@@ -2,7 +2,8 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Card, CardActionArea, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import UserContext from "./UserContext"
+import UserContext from "./UserContext";
+import { useNavigate  } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -33,16 +34,14 @@ function PatientCards() {
             });
     }, [userEmail]);
 
-    const handleClick = () => {
-        // Navigation vers le composant Dashboard
-    };
+    const navigate = useNavigate();
 
     return (
         <div className={classes.root}>
             <Grid container spacing={1}>
                 {patients.map((patient) => (
                     <Grid item xs={12} sm={6} md={4} key={patient.idPatient}>
-                        <CardActionArea component="a" onClick={handleClick}>
+                        <CardActionArea component="a" onClick={() => navigate("/pathologie")}>
                             <Card className={classes.card}>
                                 <CardMedia
                                     className={classes.media}
