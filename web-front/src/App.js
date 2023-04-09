@@ -21,6 +21,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import PatientCards from "./components/patientCards";
 
 function Home() {
   return (
@@ -50,6 +51,7 @@ function App() {
             <Route exact path="/pathologie" element={<Pathologie/>} />
             <Route exact path="/data" element={<Data/>} />
             <Route exact path="/stockage" element={<Stockage/>} />
+              <Route exact path="/patientCards" element={<PatientCards/>} />
           </Routes>
       </Router>
   );
