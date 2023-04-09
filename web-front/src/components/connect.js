@@ -42,46 +42,46 @@ function Connect() {
         </div>
         <div className="inputLogin">
           <input
-			  id="login"
-			  className="form-control"
-			  type="text"
-			  placeholder="adresse e-mail"
-			  style={{ width: '60%', margin: 10 }}
-			  value={email}
-			  onChange={(event) => setEmail(event.target.value)}
-		  />
-          <input
-			  id="password"
-			  className="form-control"
-			  type="password"
-			  placeholder="mot de passe"
-			  style={{ width: '60%', margin: 10 }}
-			  value={password}
-			  onChange={(event) => setPassword(event.target.value)}
-		  />
+			      id="login"
+			      className="form-control"
+			      type="text"
+			      placeholder="adresse e-mail"
+			      style={{ width: '60%', margin: 10 }}
+			      value={email}
+			      onChange={(event) => setEmail(event.target.value)}
+		      />
+         <input
+			    id="password"
+			    className="form-control"
+			    type="password"
+			    placeholder="mot de passe"
+			    style={{ width: '60%', margin: 10 }}
+			    value={password}
+			    onChange={(event) => setPassword(event.target.value)}
+		    />
           <label
-			  onClick={() => navigate('/Resetpwd')}
-			  style={{
-				  textDecorationLine: 'underline',
-				  cursor: 'pointer',
-				  color: 'black',
-				  marginLeft: '13%',
-			  }}
-		  >
+			      onClick={() => navigate('/Resetpwd')}
+			      style={{
+				    textDecorationLine: 'underline',
+				    cursor: 'pointer',
+				    color: 'black',
+				    marginLeft: '13%',
+			    }}
+		    >
             <b>Mot de passe oublié ?</b>
           </label>
         </div>
         <div style={{ marginTop: '10%' }}>
           <Button
-			  onClick={handleLogin}
-			  style={{
-				  width: 150,
-				  height: 30,
-				  background: ' #1846a3 ',
-				  color: 'white',
-				  border: 'none',
-			  }}
-		  >
+			      onClick={handleLogin}
+			      style={{
+				    width: 150,
+				    height: 30,
+				    background: ' #1846a3 ',
+				    color: 'white',
+				    border: 'none',
+			    }}
+		    >
             <Typography>Se connecter</Typography>
           </Button>
         </div>

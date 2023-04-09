@@ -58,7 +58,7 @@ function App() {
             <Route exact path="/pathologie" element={<Pathologie/>} />
             <Route exact path="/data" element={<Data/>} />
             <Route exact path="/stockage" element={<Stockage/>} />
-              <Route exact path="/patientCards" element={<PatientCards/>} />
+            <Route exact path="/patientCards" element={<PatientCards/>} />
           </Routes>
       </Router>
       </UserContext.Provider>

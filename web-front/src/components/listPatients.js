@@ -20,7 +20,6 @@ function ListPatients() {
             </div>
             <Footer />
         </div>
-
     )
 }
 
