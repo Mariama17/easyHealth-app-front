@@ -15,6 +15,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { subWeeks } from 'date-fns';
 
 function Data() {
     const navigate = useNavigate();
@@ -23,8 +24,8 @@ function Data() {
     const { userEmail } = useContext(UserContext);
     const [pathologies, setPathologies] = useState([]);
     const [selectedPathology, setSelectedPathology] = useState('');
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+    const [startDate, setStartDate] = useState(subWeeks(new Date(), 1));
+    const [endDate, setEndDate] = useState(new Date());
 
     useEffect(() => {
         axios
@@ -46,11 +47,11 @@ function Data() {
                 </span>
             </div>
             <br/>
-            {/* <span>
+            { <span>
                 <MenuBar />
-            </span> */}
+            </span> }
             <div style={{marginTop: '10%', marginLeft: '5%'}}>
-                <BackButton/>
+                <BackButton patientMail={patientMail}  />
             </div>
             <div className='titleDataPage'>
                 <h1>

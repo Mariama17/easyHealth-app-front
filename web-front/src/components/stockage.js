@@ -35,8 +35,8 @@ function Stockage() {
     const [files, setFiles] = useState([]);
     const [editingFile, setEditingFile] = useState(null);
 
-    console.log(userEmail);
-    
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -58,6 +58,7 @@ function Stockage() {
             console.error('Error deleting file:', error);
         }
     };
+
 
     const handleFileNameSubmit = async (currentFileName, newFileName) => {
         if (currentFileName === newFileName) {
@@ -99,6 +100,9 @@ function Stockage() {
         }
     };
 
+
+
+
     const renderIcon = (fileType) => {
         if (fileType === 'pdf') {
             return <PictureAsPdf style={{ fontSize: 50 }} />;
@@ -118,6 +122,7 @@ function Stockage() {
             return <InsertDriveFile style={{ fontSize: 50 }} />;
         }
     };
+
 
     const downloadFile = (fileData, fileName, fileType) => {
         let mimeType;
@@ -151,6 +156,12 @@ function Stockage() {
 
     const [selectedFile, setSelectedFile] = useState(null);
 
+
+
+
+
+
+
     return (
         <div className="allProfilPage">
             <div className="headerProfil">
@@ -159,13 +170,11 @@ function Stockage() {
         </span>
             </div>
             <br />
-        <span>
-            <MenuBar />
-        </span>
-        <div style={{marginTop: '10%', marginLeft: '25%'}}>
-            <BackButton/>
-        </div>
-            <div style={{ marginTop: '-2%',marginLeft: '50%' }}>
+            <span>
+        <MenuBar />
+      </span>
+            <div style={{ marginTop: '10%', marginLeft: '25%' }}>
+
                 <input
                     accept="*/*"
                     style={{ display: 'none' }}
@@ -188,7 +197,7 @@ function Stockage() {
 
                 </label>
             </div>
-            <div style={{marginLeft: '20%'}}>
+            <div>
                 {files.map((file, index) => {
                     const fileType = file.nomFichier.split('.').pop();
                     const fileNameWithoutExtension = file.nomFichier.slice(0, -fileType.length - 1);
@@ -241,6 +250,7 @@ function Stockage() {
                             <IconButton onClick={() => deleteFile(file.nomFichier)}>
                                 <DeleteIcon style={{ color: 'red' }} />
                             </IconButton>
+                            <BackButton patientMail={patientMail}  />
                         </div>
                     );
                 })}
