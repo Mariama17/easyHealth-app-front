@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import img from '../images/easy-health.png';
@@ -45,10 +46,10 @@ function Data() {
                 </span>
             </div>
             <br/>
-            <span>
+            {/* <span>
                 <MenuBar />
-            </span>
-            <div style={{marginTop: '10%', marginLeft: '25%'}}>
+            </span> */}
+            <div style={{marginTop: '10%', marginLeft: '5%'}}>
                 <BackButton/>
             </div>
             <div className='titleDataPage'>
@@ -56,7 +57,7 @@ function Data() {
                     Suivi & évolution du patient
                 </h1>
             </div>
-            <div id="buttonPathologie" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '100px' }}>
+            <div id="buttonPathologie" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '3%', marginLeft: '3%' }}>
                 {pathologies.map((pathologie) => (
                     <Button
                         key={pathologie.id}
@@ -69,7 +70,7 @@ function Data() {
                     </Button>
                 ))}
             </div>
-            <div id="date">
+            <div id="date" className='date'>
                 <Box
                     display="flex"
                     justifyContent="center"
@@ -77,7 +78,7 @@ function Data() {
                     flexDirection="column"
                     mt={4}
                 >
-                    <DatePicker
+                    <DatePicker                     
                         selected={startDate}
                         onChange={(date) => {
                             if (!endDate || date < endDate) {
@@ -100,7 +101,7 @@ function Data() {
                 </Box>
             </div>
 
-            <div id="graphe">
+            <div id="graphe" className='graphe'>
                 {selectedPathology && startDate && endDate && (
                     <Dashboard
                         patientMail={patientMail}
