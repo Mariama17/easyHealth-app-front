@@ -60,9 +60,10 @@ function Pathologie() {
                 </span>
                 <span className='btn3'>
                     <Button onClick={() => navigate('/stockage', { state: { patientMail: patientMail } })} style={{color: 'white', marginLeft: '8%'}}>
-                       DOCUMENTS PARTAGES 
+                       DOCUMENTS PARTAGES
                     </Button>
                 </span>
+
             </div>
             <div style={{marginTop: '10%', marginLeft: '20%'}}>
                 <span style={{margin: 100}}>

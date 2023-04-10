@@ -20,6 +20,7 @@ import Stockage from './components/stockage';
 import UserContext from './components/UserContext';
 import Chat from './components/chat';
 import PatientCards from "./components/patientCards";
+import Medical from "./components/medical"
 import './css/main.css';
 import {
   BrowserRouter as Router,
@@ -45,6 +46,7 @@ function App() {
       <Router>
           <Routes>
             <Route exact path="/home" element={<Home/>} />
+              <Route exact path="/medical" element={<Medical/>} />
             <Route exact path="/login" element={<Login/>} />
             <Route exact path="connect" element={<Connect/>} />
             <Route exact path="/inscription" element={<Sign_up/>} />

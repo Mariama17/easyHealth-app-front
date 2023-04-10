@@ -13,6 +13,9 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import AddIcon from '@mui/icons-material/Add';
+import MedecinModal from "./medecinModal"
+
 
 
 
@@ -35,6 +38,8 @@ const Agenda = ({ userEmail }) => {
     const [startDate, setStartDate] = useState(new Date());
     const [showModal, setShowModal] = useState(false);
     const [items, setItems] = useState([]);
+    const [selectedRdv, setSelectedRdv] = useState(null);
+    const [showModal2, setShowModal2] = useState(false);
 
 
     useEffect(() => {
@@ -45,16 +50,21 @@ const Agenda = ({ userEmail }) => {
                     const startDateTime = new Date(rdv.dateRdv + "T" + rdv.heureRdv);
                     const [hours, minutes] = rdv.duree.split(':');
                     const endDateTime = new Date(startDateTime.getTime() + (hours * 60 + parseInt(minutes)) * 60000);
+
                     return {
                         _id: rdv.idRdv,
                         name: (
                             <>
-                <span>
-                    Durée du RDV: {rdv.duree} - Email: {rdv.adresseMailPatient} - Téléphone: {rdv.numeroTelephonePatient}
-                </span>
+            <span>
+              Durée du RDV: {rdv.duree} - Email: {rdv.adresseMailPatient} - Téléphone: {rdv.numeroTelephonePatient}
+            </span>
                                 <DeleteIcon
                                     style={{ cursor: "pointer", marginLeft: "5px", color: "red" }}
                                     onClick={() => handleDeleteClick({ startDateTime })}
+                                />
+                                <AddIcon
+                                    style={{ cursor: "pointer", marginLeft: "5px", color: "blue" }}
+                                    onClick={() => handleAddClick(rdv)}
                                 />
                             </>
                         ),
@@ -69,6 +79,7 @@ const Agenda = ({ userEmail }) => {
                 console.error('Erreur lors de la récupération des données', error);
             }
         };
+
         fetchData();
     }, [userEmail]);
 
@@ -95,6 +106,10 @@ const Agenda = ({ userEmail }) => {
                                 style={{ cursor: "pointer", marginLeft: "5px", color: "red" }}
                                 onClick={() => handleDeleteClick({ startDateTime })}
                             />
+                            <AddIcon
+                                style={{ cursor: "pointer", marginLeft: "5px", color: "blue" }}
+                                onClick={() => handleAddClick(rdv)}
+                            />
                         </>
                     ),
                     startDateTime: startDateTime,
@@ -108,6 +123,13 @@ const Agenda = ({ userEmail }) => {
             console.error('Erreur lors de la récupération des données', error);
         }
     };
+
+    const handleAddClick = (rdv) => {
+        console.log(rdv);
+        setShowModal2(true);
+        setSelectedRdv(rdv);
+    };
+
 
 
     const handleDeleteClick = async (item) => {
@@ -265,6 +287,15 @@ const Agenda = ({ userEmail }) => {
                     onSubmit={handleModalSubmit}
                 />
             )}
+            {showModal2 && (
+                <MedecinModal
+                    onClose={() => setShowModal2(false)}
+                    rdv={selectedRdv}
+                    userEmail={userEmail}
+                    open={showModal2} // Ajout de cette ligne pour contrôler l'affichage de la pop-up
+                />
+            )}
+
         </div>
     );
 };
