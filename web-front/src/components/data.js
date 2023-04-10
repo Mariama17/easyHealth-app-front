@@ -52,6 +52,7 @@ function Data() {
             </span> }
             <div style={{marginTop: '10%', marginLeft: '5%'}}>
                 <BackButton patientMail={patientMail}  />
+
             </div>
             <div className='titleDataPage'>
                 <h1>

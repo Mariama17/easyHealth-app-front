@@ -251,6 +251,7 @@ function Stockage() {
                                 <DeleteIcon style={{ color: 'red' }} />
                             </IconButton>
                             <BackButton patientMail={patientMail}  />
+
                         </div>
                     );
                 })}
