@@ -9,7 +9,20 @@ import Line  from '../images/Line9.png';
 import { useNavigate  } from "react-router-dom";
 import { Button, Grid, Typography } from '@mui/material';
 
-function Contact() {
+function sendEmail(e) {
+	e.preventDefault();
+	emailjs.sendForm('service_ncpf51d', 'template_ughw7vi', e.target, 'user_4u1tq0zcGaB6Zm0gRAzxK').then(
+		(result) => {
+			console.log('sucess : ', result.text);
+			alert('Votre message a bien été envoyé');
+		},
+		(error) => {
+			console.log('error : ', error.text);
+		}
+	);
+} 
+
+function Contact(props) {
 	const navigate = useNavigate();
 	return (
 		<div>
@@ -56,7 +69,7 @@ function Contact() {
                     </h3>   
                 </div>
                 <br/>  
-                <div className="Inputs">
+                <div className="Inputs" onSubmit={(e) => sendEmail(e)}>
                     {/* <form  >                         */}
                         <input 
                             class = 'form-control2' 
