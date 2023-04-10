@@ -252,9 +252,9 @@ footer{
     border-bottom: 1px solid #ddd;
 }
   
-.menu-items li:last-child {
+/* .menu-items li:last-child {
     border-bottom: none;
-}
+} */
   
 .menu-items li:hover {
     background-color: #ddd;

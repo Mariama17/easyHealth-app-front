@@ -18,7 +18,6 @@ import Pathologie from './components/pathologie';
 import Data from './components/data';
 import Stockage from './components/stockage';
 import UserContext from './components/UserContext';
-import Chat from './components/chat';
 import PatientCards from "./components/patientCards";
 import './css/main.css';
 import {
@@ -60,7 +59,6 @@ function App() {
             <Route exact path="/data" element={<Data/>} />
             <Route exact path="/stockage" element={<Stockage/>} />
             <Route exact path="/patientCards" element={<PatientCards/>} />
-            <Route exact path="/chat" element={<Chat/>} />
           </Routes>
       </Router>
       </UserContext.Provider>

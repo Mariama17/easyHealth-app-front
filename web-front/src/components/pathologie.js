@@ -49,7 +49,7 @@ function Pathologie() {
             </div>
             <div>
                 <span className='btn1'>
-                    <Button onClick={() => navigate('/chat')} style={{color: 'white', marginLeft: '8%'}}>
+                    <Button onClick={() => navigate('/')} style={{color: 'white', marginLeft: '8%'}}>
                         CONTACTER
                     </Button>
                 </span>

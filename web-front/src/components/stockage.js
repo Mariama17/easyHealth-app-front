@@ -168,11 +168,13 @@ function Stockage() {
             <span>
         <MenuBar />
       </span>
-      <div style={{marginTop: '10%', marginLeft: '25%'}}>
+      {/* <div style={{marginTop: '10%', marginLeft: '25%'}}>
             <BackButton/>
-        </div>
-            <div style={{ marginTop: '-2%',marginLeft: '50%' }}>
-
+        </div> */}
+            <div style={{ marginTop: '10%',marginLeft: '50%' }}>
+                <div style={{marginLeft: '-50%'}}>
+                    <BackButton patientMail={patientMail}/>
+                </div>
                 <input
                     accept="*/*"
                     style={{ display: 'none' }}
@@ -180,7 +182,7 @@ function Stockage() {
                     type="file"
                     onChange={handleFileChange}
                 />
-
+              
                 <label htmlFor="contained-button-file" >
                     <Button
                         variant="contained"
@@ -188,7 +190,6 @@ function Stockage() {
                         className={classes.button}
                         component="span"
                         startIcon={<CloudUploadIcon />}
-
                     >
                         Upload File
                     </Button>
@@ -248,7 +249,6 @@ function Stockage() {
                             <IconButton onClick={() => deleteFile(file.nomFichier)}>
                                 <DeleteIcon style={{ color: 'red' }} />
                             </IconButton>
-                            <BackButton patientMail={patientMail}  />
                         </div>
                     );
                 })}
