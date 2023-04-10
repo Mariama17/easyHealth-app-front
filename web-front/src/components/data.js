@@ -1,17 +1,42 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 import img from '../images/easy-health.png';
 import MenuBar from './menuBar';
 import Footer from './footer';
 import BackButton from './BackButton';
-import { Button } from '@mui/material';
-import Line  from '../images/Line12.png';
-import courbe from '../images/courbe.png';
-import Rectangle from '../images/Rectangle.png';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import UserContext from "./UserContext";
+import Button from '@mui/material/Button';
+import Dashboard from './dashboard';
+
+import AdapterDateFns from '@mui/lab/AdapterDateFns'; // Revenir à @mui/lab
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function Data() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const patientMail = location.state?.patientMail;
+    const { userEmail } = useContext(UserContext);
+    const [pathologies, setPathologies] = useState([]);
+    const [selectedPathology, setSelectedPathology] = useState('');
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+
+    useEffect(() => {
+        axios
+            .get(`http://localhost:8080/pathologie/` + patientMail)
+            .then((response) => {
+                setPathologies(response.data);
+            })
+            .catch((error) => {
+                console.error('Erreur lors de la récupération des données : ', error);
+            });
+    }, [patientMail]);
+
+
     return (
         <div className='allProfilPage'>
             <div className='headerProfil'>
@@ -20,7 +45,7 @@ function Data() {
                 </span>
             </div>
             <br/>
-            <span>  
+            <span>
                 <MenuBar />
             </span>
             <div style={{marginTop: '10%', marginLeft: '25%'}}>
@@ -31,25 +56,59 @@ function Data() {
                     Suivi & évolution du patient
                 </h1>
             </div>
-            <div style={{marginTop: '10%', marginLeft: '15%'}}>
-                <span style={{margin: 150}}>
-                    <img src={Rectangle} width="20%" />
-               </span>
-               <img src={Line} style={{position: 'absolute', marginTop: '-2%'}}/>
-                <span style={{margin: 200}}>
-                    <img src={courbe} width="15%"/>
-                </span>
-            </div>
-            <div className='btnMesure'>
-                    {/* <Button style={{color: 'white'}}>
-                        MESURES
-                    </Button> */}
-               
-                {/* <span className=''>
-                    <Button onClick={() => navigate('/')} style={{color: 'white', marginLeft: '20%'}}>
-                       GRAPHIQUES
+            <div id="buttonPathologie" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '100px' }}>
+                {pathologies.map((pathologie) => (
+                    <Button
+                        key={pathologie.id}
+                        onClick={() => setSelectedPathology(pathologie.libelle)}
+                        variant="contained"
+                        color="primary"
+                        style={{ margin: '5px', borderRadius: '25px' }}
+                    >
+                        {pathologie.libelle}
                     </Button>
-                </span> */}
+                ))}
+            </div>
+            <div id="date">
+                <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    flexDirection="column"
+                    mt={4}
+                >
+                    <DatePicker
+                        selected={startDate}
+                        onChange={(date) => {
+                            if (!endDate || date < endDate) {
+                                setStartDate(date);
+                            }
+                        }}
+                        dateFormat="dd/MM/yyyy"
+                        placeholderText="Date de début"
+                    />
+                    <DatePicker
+                        selected={endDate}
+                        onChange={(date) => {
+                            if (!startDate || date > startDate) {
+                                setEndDate(date);
+                            }
+                        }}
+                        dateFormat="dd/MM/yyyy"
+                        placeholderText="Date de fin"
+                    />
+                </Box>
+            </div>
+
+            <div id="graphe">
+                {selectedPathology && startDate && endDate && (
+                    <Dashboard
+                        patientMail={patientMail}
+                        selectedPathology={selectedPathology}
+                        startDate={startDate}
+                        endDate={endDate}
+                    />
+                )}
             </div>
             <Footer/>
         </div>

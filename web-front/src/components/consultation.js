@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+/* eslint-disable jsx-a11y/alt-text */
+import React, {useContext} from 'react';
 import img from '../images/easy-health.png';
 import MenuBar from './menuBar';
 import Agenda from './agenda';
 import Footer from './footer';
 import MyCalendar from './calendar';
+import UserContext from "./UserContext";
 
 function Consultations() {
+    const { userEmail } = useContext(UserContext);
     return (
         <div className='allProfilPage'>
             <div className='headerProfil'>
@@ -15,13 +18,13 @@ function Consultations() {
                 </span>
             </div>
             <br/>
-            <span>  
+            <span>
                 <MenuBar />
             </span>
             <span >
-                <Agenda />
+                <Agenda userEmail={userEmail} />
             </span>
-            <span> 
+            <span>
                 <MyCalendar />
             </span>
             <Footer/>

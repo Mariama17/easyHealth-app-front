@@ -16,7 +16,6 @@ function MenuBar() {
     <div className="menu-bar">
         <ul className="menu-items">
           <li onClick={() => navigate("/consultation")}><FontAwesomeIcon icon={faCalendarAlt} size="sm" /> Planning & RDV</li>
-          <li onClick={() => navigate("/documents")}><FontAwesomeIcon icon={faFile} size="sm" /> Mes documents</li>
           <li onClick={() => navigate("/profil")}><FontAwesomeIcon icon={faUser} size="sm" /> Mon compte</li>
           <li onClick={() => navigate("/listPatients")} ><FaUser size={15} /> Mes Patients</li>
           {/* <li><FontAwesomeIcon icon={faComments} size="sm" /> Chat</li> */}
