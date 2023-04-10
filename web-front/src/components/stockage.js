@@ -174,7 +174,7 @@ function Stockage() {
         <MenuBar />
       </span>
             <div style={{ marginTop: '10%', marginLeft: '25%' }}>
-                <BackButton />
+
                 <input
                     accept="*/*"
                     style={{ display: 'none' }}
@@ -250,6 +250,7 @@ function Stockage() {
                             <IconButton onClick={() => deleteFile(file.nomFichier)}>
                                 <DeleteIcon style={{ color: 'red' }} />
                             </IconButton>
+                            <BackButton patientMail={patientMail}  />
                         </div>
                     );
                 })}
