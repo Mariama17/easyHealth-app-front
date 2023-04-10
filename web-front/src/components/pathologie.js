@@ -11,10 +11,12 @@ import doc from '../images/document.png';
 import MenuBar from './menuBar';
 import { Button } from '@mui/material';
 import Line  from '../images/Line12.png';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Pathologie() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const patientMail = location.state?.patientMail;
     return (
         <div className='allProfilPage'>
             <div className='headerProfil'>
@@ -52,12 +54,12 @@ function Pathologie() {
                     </Button>
                 </span>
                 <span className='btn2'>
-                    <Button onClick={() => navigate('/data')} style={{color: 'white', marginLeft: '8%'}}>
+                    <Button onClick={() => navigate('/data', { state: { patientMail: patientMail } })} style={{color: 'white', marginLeft: '8%'}}>
                        SUIVI & EVOLUTION
                     </Button>
                 </span>
                 <span className='btn3'>
-                    <Button onClick={() => navigate('/stockage')} style={{color: 'white', marginLeft: '8%'}}>
+                    <Button onClick={() => navigate('/stockage', { state: { patientMail: patientMail } })} style={{color: 'white', marginLeft: '8%'}}>
                        DOCUMENTS PARTAGES 
                     </Button>
                 </span>

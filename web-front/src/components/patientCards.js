@@ -41,7 +41,12 @@ function PatientCards() {
             <Grid container spacing={1}>
                 {patients.map((patient) => (
                     <Grid item xs={12} sm={6} md={4} key={patient.idPatient}>
-                        <CardActionArea component="a" onClick={() => navigate("/pathologie")}>
+                        <CardActionArea
+                            component="a"
+                            onClick={() =>
+                                navigate("/pathologie", { state: { patientMail: patient.adresseMail } })
+                            }
+                        >
                             <Card className={classes.card}>
                                 <CardMedia
                                     className={classes.media}
