@@ -228,10 +228,13 @@ footer{
     position: absolute;
     width: 20%;
     height: 70%;
+    z-index: 999;
+    /*position: fixed; */
+   
 }
   
 .menu-bar svg {
-    margin-right: 10px;
+    margin-right: 20px;
     font-size: 15px;
     cursor: pointer;
 }
@@ -245,7 +248,7 @@ footer{
     display: flex;
     align-items: center;
     padding: 10px;
-    margin: 30px;
+    margin: 46px;
     border-bottom: 1px solid #ddd;
 }
   
@@ -607,7 +610,7 @@ button[type="submit"]:hover {
 
 .titleDataPage {
     position: absolute;
-    left: 40%;
+    left: 35%;
     top: 25%;
     font-family: 'DM Sans';
     font-style: normal;
@@ -670,3 +673,13 @@ thead tr {
   color: #fff;
   text-align: center;
 } */
+
+.date {
+    margin-left: 5%;
+}
+
+.graphe {
+    margin-left: 15%;
+    width: 80%;
+    height: 50%;
+}

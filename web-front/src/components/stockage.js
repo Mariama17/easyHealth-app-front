@@ -174,7 +174,7 @@ function Stockage() {
         <MenuBar />
       </span>
             <div style={{ marginTop: '10%', marginLeft: '25%' }}>
-
+                <BackButton />
                 <input
                     accept="*/*"
                     style={{ display: 'none' }}
@@ -253,7 +253,6 @@ function Stockage() {
                         </div>
                     );
                 })}
-                <BackButton patientMail={patientMail} />
 
             </div>
             <Footer />
