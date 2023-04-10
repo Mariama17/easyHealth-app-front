@@ -18,13 +18,14 @@ import Pathologie from './components/pathologie';
 import Data from './components/data';
 import Stockage from './components/stockage';
 import UserContext from './components/UserContext';
+import Chat from './components/chat';
+import PatientCards from "./components/patientCards";
 import './css/main.css';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
-import PatientCards from "./components/patientCards";
 
 function Home() {
   return (
@@ -45,7 +46,7 @@ function App() {
           <Routes>
             <Route exact path="/home" element={<Home/>} />
             <Route exact path="/login" element={<Login/>} />
-              <Route exact path="connect" element={<Connect/>} />
+            <Route exact path="connect" element={<Connect/>} />
             <Route exact path="/inscription" element={<Sign_up/>} />
             <Route exact path="/aboutUs" element={<AboutUs/>} />
             <Route exact path="/resetpwd" element={<Resetpwd/>} />
@@ -59,6 +60,7 @@ function App() {
             <Route exact path="/data" element={<Data/>} />
             <Route exact path="/stockage" element={<Stockage/>} />
             <Route exact path="/patientCards" element={<PatientCards/>} />
+            <Route exact path="/chat" element={<Chat/>} />
           </Routes>
       </Router>
       </UserContext.Provider>
