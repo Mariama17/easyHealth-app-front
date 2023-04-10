@@ -47,9 +47,9 @@ function Data() {
                 </span>
             </div>
             <br/>
-            { <span>
+            {/* { <span>
                 <MenuBar />
-            </span> }
+            </span> } */}
             <div style={{marginTop: '10%', marginLeft: '5%'}}>
                 <BackButton patientMail={patientMail}  />
             </div>

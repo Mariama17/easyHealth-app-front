@@ -157,11 +157,6 @@ function Stockage() {
     const [selectedFile, setSelectedFile] = useState(null);
 
 
-
-
-
-
-
     return (
         <div className="allProfilPage">
             <div className="headerProfil">
@@ -173,7 +168,10 @@ function Stockage() {
             <span>
         <MenuBar />
       </span>
-            <div style={{ marginTop: '10%', marginLeft: '25%' }}>
+      <div style={{marginTop: '10%', marginLeft: '25%'}}>
+            <BackButton/>
+        </div>
+            <div style={{ marginTop: '-2%',marginLeft: '50%' }}>
 
                 <input
                     accept="*/*"
@@ -183,7 +181,7 @@ function Stockage() {
                     onChange={handleFileChange}
                 />
 
-                <label htmlFor="contained-button-file">
+                <label htmlFor="contained-button-file" >
                     <Button
                         variant="contained"
                         color="primary"
@@ -197,7 +195,7 @@ function Stockage() {
 
                 </label>
             </div>
-            <div>
+            <div style={{marginLeft: '20%'}}>
                 {files.map((file, index) => {
                     const fileType = file.nomFichier.split('.').pop();
                     const fileNameWithoutExtension = file.nomFichier.slice(0, -fileType.length - 1);
