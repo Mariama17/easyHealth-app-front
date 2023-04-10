@@ -35,8 +35,6 @@ function Stockage() {
     const [files, setFiles] = useState([]);
     const [editingFile, setEditingFile] = useState(null);
 
-    console.log(userEmail);
-
 
 
     useEffect(() => {
@@ -176,7 +174,7 @@ function Stockage() {
         <MenuBar />
       </span>
             <div style={{ marginTop: '10%', marginLeft: '25%' }}>
-                <BackButton />
+
                 <input
                     accept="*/*"
                     style={{ display: 'none' }}
@@ -255,6 +253,7 @@ function Stockage() {
                         </div>
                     );
                 })}
+                <BackButton patientMail={patientMail} />
 
             </div>
             <Footer />
