@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-undef */
-// import { useHistory } from 'react-router-dom';
+import emailjs from 'emailjs-com';
 import Footer from './footer';
 import img from '../images/easy-health.png';
-// import Header from './header';
 import Maps from './maps';
 import Line  from '../images/Line9.png';
 import { useNavigate  } from "react-router-dom";
@@ -11,7 +10,7 @@ import { Button, Grid, Typography } from '@mui/material';
 
 function sendEmail(e) {
 	e.preventDefault();
-	emailjs.sendForm('service_ncpf51d', 'template_ughw7vi', e.target, 'user_4u1tq0zcGaB6Zm0gRAzxK').then(
+	emailjs.sendForm('service_ncpf51d', 'template_ughw7vi', e.target, 'flvUG-G8i-m6vu26X').then(
 		(result) => {
 			console.log('sucess : ', result.text);
 			alert('Votre message a bien été envoyé');
@@ -22,7 +21,7 @@ function sendEmail(e) {
 	);
 } 
 
-function Contact(props) {
+function Contact() {
 	const navigate = useNavigate();
 	return (
 		<div>
@@ -69,48 +68,55 @@ function Contact(props) {
                     </h3>   
                 </div>
                 <br/>  
-                <div className="Inputs" onSubmit={(e) => sendEmail(e)}>
-                    {/* <form  >                         */}
+                <div className="Inputs">
+                    <form className='contact-form' onSubmit={(e) => sendEmail(e)}>                        
                         <input 
                             class = 'form-control2' 
                             type="text" 
-                            style={{ width:"40%", margin:"0.5%"}} 
+                            name='nom'
+                            style={{ width:"50%", margin:"0.5%", marginLeft: '16%'}} 
                             placeholder="Nom"
                         /> 
                         <input 
                             class = 'form-control2' 
                             type="text" 
-                            style={{ width:"40%", margin:"0.5%"}} 
+                            name='Prenom'
+                            style={{ width:"50%", margin:"0.5%", marginLeft: '16%'}} 
                             placeholder="Prénom"
                         /> 
                     <br/>
                         <input 
                             class = 'form-control2' 
-                            type="text" style={{ width:"40%", margin:"0.5%"}} 
+                            type="text" 
+                            name='email'
+                            style={{ width:"50%", margin:"0.5%", marginLeft: '16%'}} 
                             placeholder="Adresse mail"
                         /> 
                         <input 
                             class = 'form-control2' 
                             type="text" 
-                            style={{ width:"40%", margin:"0.5%"}} 
+                            style={{ width:"50%", margin:"0.5%", marginLeft: '16%'}} 
                             placeholder="Téléphone"
+                            name='phone'
                         /> 
                     <br/>
                         <input 
                             class = 'form-control2' 
                             type="text" 
-                            style={{ width:"81%", height: 100, margin:"0.5%"}}     
+                            name='message'
+                            style={{ width:"50%", height: 100, margin:"0.5%", marginLeft: '16%'}}     
                             placeholder="Message"
                         /> 
-          
-                    <div>
-                        <Button style={{ width: 100, height: 30, background: ' #1846a3 ', color: 'white', border: 'none', fontFamily: 'Work Sans', fontStyle:'normal', marginLeft: '37%' }}>
-                            <b>
-                                Envoyer
-                            </b>
-                        </Button>
-                    </div>
-                    {/* </form> */}
+                    <br/>
+                    <br/>
+                        <div className='btnSend'>
+                            <Button style={{ width: 100, height: 30, background: ' #1846a3 ', color: 'white', border: 'none', marginLeft: '360px'}}>
+                                <b>
+                                    Envoyer
+                                </b>
+                            </Button>
+                        </div>
+                    </form>
                 </div>
             <div>
                 <h3>

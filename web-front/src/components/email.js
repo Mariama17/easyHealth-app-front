@@ -5,7 +5,7 @@ export default function ContactUs() {
   function sendEmail(e) {
     e.preventDefault();
 
-    emailjs.sendForm('service_ncpf51d', 'template_ughw7vi', e.target, 'user_4u1tq0zcGaB6Zm0gRAzxK')
+    emailjs.sendForm('service_ncpf51d', 'template_ughw7vi', e.target, 'flvUG-G8i-m6vu26X')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -20,7 +20,7 @@ export default function ContactUs() {
       <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
       (
         function() {
-        emailjs.init("user_4u1tq0zcGaB6Zm0gRAzxK")
+        emailjs.init("flvUG-G8i-m6vu26X")
         }
       )();
       </script>

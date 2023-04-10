@@ -683,3 +683,9 @@ thead tr {
     width: 80%;
     height: 50%;
 }
+
+.btnSend {
+    font-family: 'Work Sans';
+    font-style:'normal';
+    margin-left: '50%'
+}
