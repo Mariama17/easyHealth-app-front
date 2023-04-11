@@ -18,6 +18,7 @@ import Pathologie from './components/pathologie';
 import Data from './components/data';
 import Stockage from './components/stockage';
 import UserContext from './components/UserContext';
+import { UserProvider } from './components/UserContext';
 import Chat from './components/chat';
 import PatientCards from "./components/patientCards";
 import Medical from "./components/medical"
