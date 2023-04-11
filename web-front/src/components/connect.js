@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -31,17 +32,17 @@ function Connect() {
 
 	return (
 		<div style={{ backgroundColor: '#f1f3f5' }}>
-      <span className="img_assistante-medicale">
-        <img src={img} width="30%" />
-      </span>
+      		<span className="img_assistante-medicale">
+        		<img src={img} width="30%" />
+      		</span>
 			<span className="loginBody">
-        <div>
-          <p style={{ fontSize: '150%', marginTop: '1%' }}>
-            <b>Connectez vous</b>
-          </p>
-        </div>
-        <div className="inputLogin">
-          <input
+        	<div>
+          		<p style={{ fontSize: '150%', marginTop: '1%' }}>
+            		<b>Connectez vous</b>
+          		</p>
+        	</div>
+        	<div className="inputLogin">
+          		<input
 			      id="login"
 			      className="form-control"
 			      type="text"
@@ -49,25 +50,24 @@ function Connect() {
 			      style={{ width: '60%', margin: 10 }}
 			      value={email}
 			      onChange={(event) => setEmail(event.target.value)}
-		      />
-         <input
-			    id="password"
-			    className="form-control"
-			    type="password"
-			    placeholder="mot de passe"
-			    style={{ width: '60%', margin: 10 }}
-			    value={password}
-			    onChange={(event) => setPassword(event.target.value)}
-		    />
-          <label
-			      onClick={() => navigate('/Resetpwd')}
-			      style={{
+		      	/>
+         		<input
+			    	id="password"
+			    	className="form-control"
+			    	type="password"
+			    	placeholder="mot de passe"
+			    	style={{ width: '60%', margin: 10 }}
+			    	value={password}
+			    	onChange={(event) => setPassword(event.target.value)}
+		    	/>
+          		<label
+			      	onClick={() => navigate('/Resetpwd')}
+			      	style={{
 				    textDecorationLine: 'underline',
 				    cursor: 'pointer',
 				    color: 'black',
 				    marginLeft: '13%',
-			    }}
-		    >
+			    }}>
             <b>Mot de passe oublié ?</b>
           </label>
         </div>

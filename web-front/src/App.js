@@ -19,7 +19,7 @@ import Data from './components/data';
 import Stockage from './components/stockage';
 import UserContext from './components/UserContext';
 import PatientCards from "./components/patientCards";
-import Medical from "./components/medical"
+import Medical from "./components/medical";
 import './css/main.css';
 import {
   BrowserRouter as Router,
