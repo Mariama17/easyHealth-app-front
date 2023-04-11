@@ -11,12 +11,13 @@ function PersonalInformation(props) {
     useEffect(() => {
         if (props.medecinData) {
             setFormData({
-                adresseMail: props.medecinData.adresseMail,
-                numeroTelephone: props.medecinData.numeroTelephone,
-                specialite: props.medecinData.specialite,
+                adresseMail: props.medecinData.adresseMail || '',
+                numeroTelephone: props.medecinData.numeroTelephone || '',
+                specialite: props.medecinData.specialite || '',
             });
         }
     }, [props.medecinData]);
+
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -37,7 +38,7 @@ function PersonalInformation(props) {
                 <div>
                     <div>
                         <input
-                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '30px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
+                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '20px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
                             id="address"
                             placeholder="adresse e-mail"
                             name="adresseMail"
@@ -47,7 +48,7 @@ function PersonalInformation(props) {
                     </div>
                     <div>
                         <input
-                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '30px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
+                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '20px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
                             type="phone"
                             id="telephone"
                             placeholder="Téléphone"
@@ -58,7 +59,7 @@ function PersonalInformation(props) {
                     </div>
                     <div>
                         <input
-                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '30px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
+                            style={{padding: '10px', border: '1px solid #ccc', borderRadius: '5px', marginBottom: '20px', fontSize: '15px', width: '235%', backgroundColor: 'rgba(113, 148, 88, 0.12)'}}
                             type="text"
                             id="specialty"
                             name="specialite"
