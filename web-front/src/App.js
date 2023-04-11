@@ -19,6 +19,7 @@ import Data from './components/data';
 import Stockage from './components/stockage';
 import UserContext from './components/UserContext';
 import PatientCards from "./components/patientCards";
+import Medical from "./components/medical"
 import './css/main.css';
 import {
   BrowserRouter as Router,
@@ -59,6 +60,7 @@ function App() {
             <Route exact path="/data" element={<Data/>} />
             <Route exact path="/stockage" element={<Stockage/>} />
             <Route exact path="/patientCards" element={<PatientCards/>} />
+            <Route exact path="/medical" element={<Medical/>} />
           </Routes>
       </Router>
       </UserContext.Provider>

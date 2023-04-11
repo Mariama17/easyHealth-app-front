@@ -13,6 +13,8 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import AddIcon from '@mui/icons-material/Add';
+import MedecinModal from "./medecinModal"
 
 const colors = {
     'color-1': 'rgba(102, 195, 131 , 1)',
@@ -28,6 +30,8 @@ const Agenda = ({ userEmail }) => {
     const [startDate, setStartDate] = useState(new Date());
     const [showModal, setShowModal] = useState(false);
     const [items, setItems] = useState([]);
+    const [selectedRdv, setSelectedRdv] = useState(null);
+    const [showModal2, setShowModal2] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -47,6 +51,10 @@ const Agenda = ({ userEmail }) => {
                                 <DeleteIcon
                                     style={{ cursor: "pointer", marginLeft: "5px", color: "red" }}
                                     onClick={() => handleDeleteClick({ startDateTime })}
+                                />
+                                <AddIcon
+                                    style={{ cursor: "pointer", marginLeft: "5px", color: "blue" }}
+                                    onClick={() => handleAddClick(rdv)}
                                 />
                             </>
                         ),
@@ -86,6 +94,10 @@ const Agenda = ({ userEmail }) => {
                                 style={{ cursor: "pointer", marginLeft: "5px", color: "red" }}
                                 onClick={() => handleDeleteClick({ startDateTime })}
                             />
+                            <AddIcon
+                                style={{ cursor: "pointer", marginLeft: "5px", color: "blue" }}
+                                onClick={() => handleAddClick(rdv)}
+                            />
                         </>
                     ),
                     startDateTime: startDateTime,
@@ -98,6 +110,12 @@ const Agenda = ({ userEmail }) => {
         } catch (error) {
             console.error('Erreur lors de la récupération des données', error);
         }
+    };
+
+    const handleAddClick = (rdv) => {
+        console.log(rdv);
+        setShowModal2(true);
+        setSelectedRdv(rdv);
     };
 
     const handleDeleteClick = async (item) => {
@@ -251,6 +269,14 @@ const Agenda = ({ userEmail }) => {
                     rdv={editingRdv}
                     onClose={() => setShowModal(false)}
                     onSubmit={handleModalSubmit}
+                />
+            )}
+            {showModal2 && (
+                <MedecinModal
+                    onClose={() => setShowModal2(false)}
+                    rdv={selectedRdv}
+                    userEmail={userEmail}
+                    open={showModal2} // Ajout de cette ligne pour contrôler l'affichage de la pop-up
                 />
             )}
         </div>
