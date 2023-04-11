@@ -10,34 +10,22 @@ import { UserProvider } from "./UserContext"
 import axios from 'axios';
 
 function ListPatients() {
-    const { userEmail, updateUserEmail } = useContext(UserContext); // Ajoutez updateUserEmail ici
+    const { userEmail, updateUserEmail } = useContext(UserContext);
     const [medecinData, setMedecinData] = useState(null);
+    const [updated, setUpdated] = useState(false);
+    const [medecinNom, setMedecinNom] = useState("");
+
+    const fetchData = async () => {
+        const response = await axios.get(`http://localhost:8080/medecins/${userEmail}`);
+        setMedecinData(response.data);
+    };
+
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.get(`http://localhost:8080/medecins/${userEmail}`);
-            setMedecinData(response.data);
-        };
-
-        async function handleSubmit(event, updatedData) {
-            event.preventDefault();
-
-            const formData = new FormData();
-            if (updatedData.photo) formData.append("file", updatedData.photo);
-            if (updatedData.adresseMail) formData.append("adresseMail", updatedData.adresseMail);
-            if (updatedData.numeroTelephone) formData.append("numeroTelephone", updatedData.numeroTelephone);
-
-            try {
-                const response = await axios.put(`http://localhost:8080/medecins/${userEmail}/update`, formData);
-                setMedecinData(response.data);
-            } catch (error) {
-                console.error("Error updating medecin data:", error);
-            }
-        }
-
 
         fetchData();
-    }, []);
+    }, [userEmail]);
+
 
     const updateMedecin = async (updatedData) => {
         const formData = new FormData();
@@ -50,12 +38,18 @@ function ListPatients() {
             setMedecinData(response.data);
             if (updatedData.adresseMail) {
                 updateUserEmail(updatedData.adresseMail);
-                console.log(userEmail)// Mettez à jour le contexte si l'adresse e-mail est modifiée
             }
+            await fetchData();
         } catch (error) {
             console.error('Erreur lors de la mise à jour des informations du médecin:', error);
         }
     };
+
+    const updateUserEmailWithUpdatedData = (updatedData) => {
+        updateMedecin(updatedData);
+    };
+
+    console.log(medecinData);
 
     return (
         <div className='allProfilPage'>
@@ -65,15 +59,15 @@ function ListPatients() {
                 </span>
             </div>
             <br/>
-            <span>  
+            <span>
                 <MenuBar />
             </span>
             <span>
-                <MyProfile nom="a" photo={medecinData && medecinData.photoProfil} onUpdate={updateMedecin} />
-            </span>
+            <MyProfile nom={medecinData} photo={medecinData && medecinData.photoProfil} onUpdate={updateUserEmailWithUpdatedData} />
+        </span>
             <span>
-                <PersonalInformation medecinData={medecinData} medecinMail={userEmail} onUpdate={updateMedecin} />
-            </span>
+            <PersonalInformation medecinData={medecinData} medecinMail={userEmail} onUpdate={updateUserEmailWithUpdatedData} />
+        </span>
             <Footer/>
         </div>
     )

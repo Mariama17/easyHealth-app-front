@@ -22,7 +22,6 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
                 )
                 .then((response) => {
                     setMesures(response.data);
-                    console.log(response.data);
                 })
                 .catch((error) => {
                     console.error('Erreur lors de la récupération des données : ', error);
@@ -53,7 +52,7 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
         soir: {},
     };
 
-    console.log(mesures);
+
 
     mesures.sort((a, b) => new Date(a.date) - new Date(b.date));
 
@@ -79,25 +78,38 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
 
 
 
-    console.log(chartData);
 
-    const createLineDataset = (periode, color) => {
+    const createLineDatasets = (periode) => {
         if (!chartData[periode] || !chartData[periode][selectedPathology]) {
             return null;
         }
 
-        const data = chartData[periode][selectedPathology].data;
-        const label = `${selectedPathology} (${periode})`;
+        const datasetsByUnit = {};
 
-        return {
-            label: label,
-            data: data,
-            fill: false,
-            backgroundColor: color,
-            borderColor: color,
-            tension: 0.1,
-        };
+        chartData[periode][selectedPathology].data.forEach((value, index) => {
+            // Récupérez l'unité de mesure de la mesure à l'index actuel
+            const measureIndex = chartData[periode][selectedPathology].labels[index];
+            const measure = mesures.find(
+                (m) => format(new Date(m.date), 'dd/MM/yyyy') === measureIndex && m.periode === periode
+            );
+            const unit = measure.unite;
+
+            if (!datasetsByUnit[unit]) {
+                datasetsByUnit[unit] = {
+                    label: `${selectedPathology} (${periode}, ${unit})`,
+                    data: [],
+                    fill: false,
+                    borderColor: colors[Object.keys(datasetsByUnit).length % colors.length],
+                    tension: 0.1,
+                };
+            }
+
+            datasetsByUnit[unit].data.push(value);
+        });
+
+        return Object.values(datasetsByUnit);
     };
+
 
 
 
@@ -111,9 +123,9 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
     ];
 
     const renderLineChart = (periode) => {
-        const dataset = createLineDataset(periode, colors[0]);
+        const datasets = createLineDatasets(periode);
 
-        if (!dataset) {
+        if (!datasets) {
             return null;
         }
 
@@ -137,7 +149,7 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
                 ref={chartRef}
                 data={{
                     labels: chartData[periode][selectedPathology]?.labels || [],
-                    datasets: [dataset],
+                    datasets: datasets,
                 }}
                 options={{
                     scales: {
@@ -170,9 +182,11 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
                                 label: (context) => {
                                     const { dataset, dataIndex } = context;
                                     const { label } = dataset;
+                                    const regex = /,\s(.*?)\)/;
+                                    const match = label.match(regex);
+                                    const extractedString = match ? match[1] : '';
                                     const value = dataset.data[dataIndex];
-                                    const unit = mesures[dataIndex].unite;
-                                    return `${label}: ${value} ${unit}`;
+                                    return `${label}: ${value} ${extractedString} `;
                                 },
 
                             },
