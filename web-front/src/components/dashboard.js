@@ -10,11 +10,14 @@ Chart.register(LineController, LineElement, PointElement, LinearScale, TimeScale
 
 function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
     const [mesures, setMesures] = useState([]);
+    console.log(patientMail);
 
     useEffect(() => {
         if (patientMail && selectedPathology && startDate && endDate) {
             const formattedStartDate = startDate.toISOString().split('T')[0];
             const formattedEndDate = endDate.toISOString().split('T')[0];
+            console.log(formattedStartDate);
+            console.log(formattedEndDate);
 
             axios
                 .get(
@@ -22,6 +25,7 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
                 )
                 .then((response) => {
                     setMesures(response.data);
+                    console.log(response.data);
                 })
                 .catch((error) => {
                     console.error('Erreur lors de la récupération des données : ', error);
@@ -84,31 +88,51 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
             return null;
         }
 
-        const datasetsByUnit = {};
+        const datasetsByNomMesure = {};
 
-        chartData[periode][selectedPathology].data.forEach((value, index) => {
-            // Récupérez l'unité de mesure de la mesure à l'index actuel
-            const measureIndex = chartData[periode][selectedPathology].labels[index];
-            const measure = mesures.find(
-                (m) => format(new Date(m.date), 'dd/MM/yyyy') === measureIndex && m.periode === periode
-            );
-            const unit = measure.unite;
+        mesures.forEach((measure) => {
+            if (measure.periode === periode) {
+                const dateLabel = format(new Date(measure.date), 'dd/MM/yyyy');
+                const nomMesure = measure.nomMesure;
 
-            if (!datasetsByUnit[unit]) {
-                datasetsByUnit[unit] = {
-                    label: `${selectedPathology} (${periode}, ${unit})`,
-                    data: [],
-                    fill: false,
-                    borderColor: colors[Object.keys(datasetsByUnit).length % colors.length],
-                    tension: 0.1,
-                };
+                if (!datasetsByNomMesure[nomMesure]) {
+                    datasetsByNomMesure[nomMesure] = {
+                        label: `${selectedPathology} (${periode}, ${nomMesure})`,
+                        data: [],
+                        fill: false,
+                        borderColor: colors[Object.keys(datasetsByNomMesure).length % colors.length],
+                        tension: 0,
+                    };
+                }
+
+                const dataIndex = datasetsByNomMesure[nomMesure].data.findIndex((data) => data.label === dateLabel);
+
+                if (dataIndex === -1) {
+                    datasetsByNomMesure[nomMesure].data.push({
+                        label: dateLabel,
+                        value: measure.valeur,
+                    });
+                } else {
+                    // We need to update the value for this specific date and measurement name.
+                    datasetsByNomMesure[nomMesure].data[dataIndex].value += measure.valeur;
+                }
             }
-
-            datasetsByUnit[unit].data.push(value);
         });
 
-        return Object.values(datasetsByUnit);
+        return Object.values(datasetsByNomMesure).map((dataset) => ({
+            ...dataset,
+            data: chartData[periode][selectedPathology].labels.map((label) => {
+                const data = dataset.data.find((data) => data.label === label);
+                return data ? data.value : null;
+            }),
+        }));
     };
+
+
+
+
+
+
 
 
 
@@ -182,12 +206,17 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
                                 label: (context) => {
                                     const { dataset, dataIndex } = context;
                                     const { label } = dataset;
-                                    const regex = /,\s(.*?)\)/;
-                                    const match = label.match(regex);
-                                    const extractedString = match ? match[1] : '';
                                     const value = dataset.data[dataIndex];
-                                    return `${label}: ${value} ${extractedString} `;
+
+                                    const measureIndex = chartData[periode][selectedPathology].labels[dataIndex];
+                                    const measure = mesures.find(
+                                        (m) => format(new Date(m.date), 'dd/MM/yyyy') === measureIndex && m.periode === periode
+                                    );
+                                    const unite = measure.unite;
+
+                                    return `${label}: ${value} ${unite}`;
                                 },
+
 
                             },
                         },
@@ -214,5 +243,3 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
 }
 
 export default Dashboard;
-
-
