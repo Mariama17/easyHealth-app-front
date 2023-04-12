@@ -548,9 +548,29 @@ button[type="submit"]:hover {
     margin-top: -10%;
     margin-left: 45%;
 }
-  
+
 .profile-details {
     width: 40%;
+    height: 200px;
+    overflow-y: auto;
+}
+
+/* Personnalisation de la barre de défilement pour les navigateurs Webkit (Chrome, Safari, etc.) */
+.profile-details::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+.profile-details::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #CBE2FF;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Personnalisation de la barre de défilement pour Firefox */
+.profile-details {
+    scrollbar-width: thin;
+    scrollbar-color: #3A6898 transparent;
 }
 
 .graph {

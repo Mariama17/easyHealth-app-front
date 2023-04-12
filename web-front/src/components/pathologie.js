@@ -67,6 +67,7 @@ function Pathologie() {
                     {patientData?.consultations.map((consultation, index) => (
                         <div key={index}>
                             <h5><b>Consultation {index + 1} :</b></h5>
+                            <br/>
                             <p><b>Date :</b> {consultation.date}</p>
                             <p><b>Pathologie :</b> {consultation.pathologieLibelle}</p>
                             <p><b>Médecin :</b> {consultation.medecinNom}</p>
@@ -78,6 +79,7 @@ function Pathologie() {
                                     </li>
                                 ))}
                             </ul>
+                            <p>------------------------</p>
                         </div>
                     ))}
                 </div>
