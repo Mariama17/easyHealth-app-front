@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import img from '../images/easy-health.png';
 import photo from '../images/dupon.jpg';    
 import Footer from './footer';
@@ -12,11 +12,31 @@ import MenuBar from './menuBar';
 import { Button } from '@mui/material';
 import Line  from '../images/Line12.png';
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from 'axios';
+import UserContext from "./UserContext";
 
 function Pathologie() {
     const navigate = useNavigate();
     const location = useLocation();
     const patientMail = location.state?.patientMail;
+    const { userEmail } = useContext(UserContext);
+    const [patientData, setPatientData] = useState(null);
+
+    useEffect(() => {
+        const fetchPatientData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/patients/${patientMail}`);
+                setPatientData(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données du patient:', error);
+            }
+        };
+
+        fetchPatientData();
+    }, []);
+
+
     return (
         <div className='allProfilPage'>
             <div className='headerProfil'>
@@ -33,20 +53,37 @@ function Pathologie() {
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; John doe
                 </h4>
                 <br/>
-                <img src={photo} alt="Photo de profil" width="200" height="150"/>
+                {/* A modifier par les données de l'API*/}
+                <img src={`data:image/jpeg;base64,${patientData?.photoProfil}`} alt="Photo de profil" width="200" height="150"/>
             </div>
             <div className="profile-details-wrapper">
                 <div className="profile-detail">
-                    <p><b>Sexe: Homme</b></p>
-                    <p><b>Age: 35 ans</b></p>
-                    <p><b>Groupe sanguin: A+</b></p>
+                    <p><b>Nom : {patientData?.nom} {patientData?.prenom}</b></p>
+                    <p><b>Adresse mail : {patientData?.adresseMail}</b></p>
+                    <p><b>Numéro de téléphone : {patientData?.numeroTelephone}</b></p>
                 </div>
+
                 <div className="profile-details">
-                    <p><b>Inscription: 01/04/2023</b></p>
-                    <p><b>Pathologie: Cardiologie</b></p>
-                    <p><b>Identifiant: 12</b></p>
+                    {patientData?.consultations.map((consultation, index) => (
+                        <div key={index}>
+                            <h5><b>Consultation {index + 1} :</b></h5>
+                            <p><b>Date :</b> {consultation.date}</p>
+                            <p><b>Pathologie :</b> {consultation.pathologieLibelle}</p>
+                            <p><b>Médecin :</b> {consultation.medecinNom}</p>
+                            <p><b>Ordonnance :</b></p>
+                            <ul>
+                                {consultation.ordonnance.prescriptions.map((prescription, idx) => (
+                                    <li key={idx}>
+                                        {prescription.medicamentNom} (DESCRIPTION : {prescription.medicamentDescription})
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
+
             </div>
+            {/* A modifier par les données de l'API*/}
             <div>
                 <span className='btn1'>
                     <Button onClick={() => navigate('/')} style={{color: 'white', marginLeft: '8%'}}>
