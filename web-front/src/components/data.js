@@ -76,6 +76,7 @@ function Data() {
                     flexDirection="column"
                     mt={4}
                 >
+                    <h4>Saisir une intervalle de date:</h4>
                     <DatePicker                     
                         selected={startDate}
                         onChange={(date) => {
