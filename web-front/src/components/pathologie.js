@@ -109,7 +109,8 @@ function Pathologie() {
                                 <ul>
                                     {consultation.ordonnance.prescriptions.map((prescription, idx) => (
                                         <li key={idx}>
-                                            {prescription.medicamentNom} (DESCRIPTION : {prescription.medicamentDescription})
+                                            <strong>•</strong> {prescription.medicamentNom} (DESCRIPTION : {prescription.medicamentDescription})
+                                            <br/>
                                         </li>
                                     ))}
                                 </ul>

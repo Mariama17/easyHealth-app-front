@@ -65,6 +65,8 @@ function PatientCards() {
                                 </CardContent>
                             </Card>
                         </CardActionArea>
+                        <br/> <br/> <br/> <br/>
+
                     </Grid>
                 ))}
             </Grid>

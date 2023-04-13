@@ -141,6 +141,14 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
     const renderLineChart = (periode) => {
         const datasets = createLineDatasets(periode);
 
+        if (!datasets || datasets.length === 0 || datasets.every((dataset) => dataset.data.every((value) => value === null))) {
+            return (
+                <p>
+                    Aucune mesure pour la période de {periode} entre l'intervalle de date du {format(startDate, 'dd/MM/yyyy')} au {format(endDate, 'dd/MM/yyyy')}
+                </p>
+            );
+        }
+
         if (!datasets) {
             return null;
         }
