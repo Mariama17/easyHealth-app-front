@@ -28,7 +28,7 @@ function ListPatients() {
  				<Grid item xs={12} md={7} sm={7}>
                     <TextField
                         id='search'
-                        placeholder='Nom, Prenom'
+                        placeholder='Nom'
                         label='Rechercher un patient'
                         variant='outlined'
                         sx={{ width: '80%' }}
