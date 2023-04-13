@@ -21,6 +21,7 @@ function Pathologie() {
     const patientMail = location.state?.patientMail;
     const { userEmail } = useContext(UserContext);
     const [patientData, setPatientData] = useState(null);
+    const [doctorData, setDoctorData] = useState(null);
 
     useEffect(() => {
         const fetchPatientData = async () => {
@@ -36,6 +37,21 @@ function Pathologie() {
         fetchPatientData();
     }, []);
 
+    useEffect(() => {
+        const fetchDoctorData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/medecins/${userEmail}`);
+                setDoctorData(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.error("Erreur lors de la récupération des données du médecin:", error);
+            }
+        };
+
+        fetchDoctorData();
+    }, []);
+
+
 
     return (
         <div className='allProfilPage'>
@@ -50,7 +66,7 @@ function Pathologie() {
             </span>
             <div className='Pprofil'>
                 <h4>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; John doe
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </h4>
                 <br/>
                 {/* A modifier par les données de l'API*/}
@@ -64,25 +80,44 @@ function Pathologie() {
                 </div>
 
                 <div className="profile-details">
-                    {patientData?.consultations.map((consultation, index) => (
-                        <div key={index}>
-                            <h5><b>Consultation {index + 1} :</b></h5>
-                            <br/>
-                            <p><b>Date :</b> {consultation.date}</p>
-                            <p><b>Pathologie :</b> {consultation.pathologieLibelle}</p>
-                            <p><b>Médecin :</b> {consultation.medecinNom}</p>
-                            <p><b>Ordonnance :</b></p>
-                            <ul>
-                                {consultation.ordonnance.prescriptions.map((prescription, idx) => (
-                                    <li key={idx}>
-                                        {prescription.medicamentNom} (DESCRIPTION : {prescription.medicamentDescription})
-                                    </li>
-                                ))}
-                            </ul>
-                            <p>------------------------</p>
-                        </div>
-                    ))}
+                    {patientData?.consultations
+                        .filter(
+                            (consultation) =>
+                                consultation.medecinNom === doctorData?.nom &&
+                                consultation.ordonnance !== null &&
+                                consultation.ordonnance.prescriptions.length > 0
+                        )
+                        .map((consultation, index) => (
+                            <div key={index}>
+                                <h5>
+                                    <b>Consultation {index + 1} :</b>
+                                </h5>
+                                <br />
+                                <p>
+                                    <b>Date :</b> {new Date(consultation.date).toLocaleDateString()}
+                                </p>
+
+                                <p>
+                                    <b>Pathologie :</b> {consultation.pathologieLibelle}
+                                </p>
+                                <p>
+                                    <b>Médecin :</b> Dr.{consultation.medecinNom}
+                                </p>
+                                <p>
+                                    <b>Ordonnance :</b>
+                                </p>
+                                <ul>
+                                    {consultation.ordonnance.prescriptions.map((prescription, idx) => (
+                                        <li key={idx}>
+                                            {prescription.medicamentNom} (DESCRIPTION : {prescription.medicamentDescription})
+                                        </li>
+                                    ))}
+                                </ul>
+                                <p>------------------------</p>
+                            </div>
+                        ))}
                 </div>
+
 
             </div>
             {/* A modifier par les données de l'API*/}

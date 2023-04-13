@@ -101,7 +101,7 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
                         data: [],
                         fill: false,
                         borderColor: colors[Object.keys(datasetsByNomMesure).length % colors.length],
-                        tension: 0.3,
+                        tension: 0.1,
                     };
                 }
 
@@ -127,16 +127,6 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
             }),
         }));
     };
-
-
-
-
-
-
-
-
-
-
 
     const colors = [
         'rgba(75, 192, 192, 1)',

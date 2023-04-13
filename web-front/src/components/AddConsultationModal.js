@@ -61,7 +61,7 @@ const AddConsultationModal = ({ rdv, onClose }) => {
 
         try {
             await axios.post(
-                `http://localhost:8080/ordonnance/${consultationId}`,
+                `https://yvandev.fr/easyHealth/ordonnance/${consultationId}`,
                 prescriptionData
             );
         } catch (error) {
@@ -78,7 +78,7 @@ const AddConsultationModal = ({ rdv, onClose }) => {
 
         try {
             await axios.post(
-                `http://localhost:8080/suivis/${consultationId}`,
+                `https://yvandev.fr/easyHealth/suivis/${consultationId}`,
                 followUpData
             );
         } catch (error) {
