@@ -134,7 +134,7 @@ function Pathologie() {
                     </Button>
                 </span>
             </div>
-            <div style={{marginTop: '10%', marginLeft: '20%'}}>
+            <div style={{marginTop: '6%', marginLeft: '20%'}}>
                 <span style={{margin: 100}}>
                     <img src={messagerie} width="10%" />
                 </span>
