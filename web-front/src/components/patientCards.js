@@ -18,10 +18,17 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-function PatientCards() {
+function PatientCards({ searchTerm }) {
     const classes = useStyles();
     const [patients, setPatients] = useState([]);
     const { userEmail } = useContext(UserContext);
+
+    const filteredPatients = patients.filter((patient) => {
+        const patientName = ` ${patient.nom}`.toLowerCase();
+        const searchValue = searchTerm.toLowerCase();
+
+        return patientName.includes(searchValue);
+    });
 
     useEffect(() => {
         axios
@@ -39,7 +46,7 @@ function PatientCards() {
     return (
         <div className={classes.root}>
             <Grid container spacing={1}>
-                {patients.map((patient) => (
+                {filteredPatients.map((patient) => (
                     <Grid item xs={12} sm={6} md={4} key={patient.idPatient}>
                         <CardActionArea
                             component="a"
