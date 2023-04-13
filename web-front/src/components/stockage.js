@@ -40,7 +40,7 @@ function Stockage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/files/${patientMail}/${userEmail}`);
+                const response = await axios.get(`https://yvandev.fr/easyHealth/files/${patientMail}/${userEmail}`);
                 setFiles(response.data);
             } catch (error) {
                 console.error('Error fetching files:', error);
@@ -51,8 +51,8 @@ function Stockage() {
 
     const deleteFile = async (fileName) => {
         try {
-            await axios.delete(`http://localhost:8080/delete/${fileName}`);
-            const updatedFiles = await axios.get(`http://localhost:8080/files/${patientMail}/${userEmail}`);
+            await axios.delete(`https://yvandev.fr/easyHealth/delete/${fileName}`);
+            const updatedFiles = await axios.get(`https://yvandev.fr/easyHealth/files/${patientMail}/${userEmail}`);
             setFiles(updatedFiles.data);
         } catch (error) {
             console.error('Error deleting file:', error);
@@ -67,7 +67,7 @@ function Stockage() {
         }
 
         try {
-            await axios.put(`http://localhost:8080/rename/${currentFileName}/${newFileName}`);
+            await axios.put(`https://yvandev.fr/easyHealth/rename/${currentFileName}/${newFileName}`);
             setFiles((prevFiles) =>
                 prevFiles.map((file) =>
                     file.nomFichier === currentFileName ? { ...file, nomFichier: newFileName } : file
@@ -89,11 +89,11 @@ function Stockage() {
 
         try {
             await axios.post(
-                `http://localhost:8080/upload/${patientMail}/${userEmail}`,
+                `https://yvandev.fr/easyHealth/upload/${patientMail}/${userEmail}`,
                 formData,
                 { headers: { 'Content-Type': 'multipart/form-data' } }
             );
-            const updatedFiles = await axios.get(`http://localhost:8080/files/${patientMail}/${userEmail}`);
+            const updatedFiles = await axios.get(`https://yvandev.fr/easyHealth/files/${patientMail}/${userEmail}`);
             setFiles(updatedFiles.data);
         } catch (error) {
             console.error('Error uploading file:', error);

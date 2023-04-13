@@ -17,7 +17,7 @@ function Connect() {
 
 	const handleLogin = async () => {
 		try {
-			const response = await axios.post('http://localhost:8080/auth/login/MEDECIN', {
+			const response = await axios.post('https://yvandev.fr/easyHealth/auth/login/MEDECIN', {
 				adresseMail: email,
 				motDePasse: password,
 			});

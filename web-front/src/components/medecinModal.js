@@ -17,7 +17,7 @@ const MedecinModal = ({ onClose, rdv, open, userEmail }) => {
     const handlePart1Submit = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:8080/consultations/medecin/saisir/"+ userEmail,
+                "https://yvandev.fr/easyHealth/consultations/medecin/saisir/"+ userEmail,
                 {
                     date: rdv.dateRdv,
                     heure: rdv.heureRdv,
@@ -38,7 +38,7 @@ const MedecinModal = ({ onClose, rdv, open, userEmail }) => {
         console.log(prescriptions);
         console.log(rdv.dateRdv);
         try {
-            await axios.post(`http://localhost:8080/ordonnance/${consultationId}`, {
+            await axios.post(`https://yvandev.fr/easyHealth/ordonnance/${consultationId}`, {
                 dateOrdo: rdv.dateRdv,
                 prescriptions,
             });
@@ -51,7 +51,7 @@ const MedecinModal = ({ onClose, rdv, open, userEmail }) => {
 
     const handlePart3Submit = async () => {
         try {
-            await axios.post(`http://localhost:8080/suivis/${consultationId}`, {
+            await axios.post(`https://yvandev.fr/easyHealth/suivis/${consultationId}`, {
                 id: 0,
                 description: `Suivi de ${pathologie}`,
                 etat: "en cours",

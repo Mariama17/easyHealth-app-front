@@ -26,7 +26,7 @@ function Pathologie() {
     useEffect(() => {
         const fetchPatientData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/patients/${patientMail}`);
+                const response = await axios.get(`https://yvandev.fr/easyHealth/patients/${patientMail}`);
                 setPatientData(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -40,7 +40,7 @@ function Pathologie() {
     useEffect(() => {
         const fetchDoctorData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/medecins/${userEmail}`);
+                const response = await axios.get(`https://yvandev.fr/easyHealth/medecins/${userEmail}`);
                 setDoctorData(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -54,7 +54,7 @@ function Pathologie() {
     return (
         <div className='allProfilPage'>
             <div className='headerProfil'>
-                <span style={{position: 'absolute', marginLeft: '45%', top: '0px'}}>
+                <span style={{position: 'absolute', marginLeft: '45%', marginBottom: '20%', top: '0px'}}>
                     <img src={img} width="20%" />
                 </span>
             </div>

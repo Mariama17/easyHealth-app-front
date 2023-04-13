@@ -21,7 +21,7 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
 
             axios
                 .get(
-                    `http://localhost:8080/mesure/mesuresPatientAvecPathalogie/${patientMail}/${selectedPathology}/${formattedStartDate}/${formattedEndDate}`
+                    `https://yvandev.fr/easyHealth/mesure/mesuresPatientAvecPathalogie/${patientMail}/${selectedPathology}/${formattedStartDate}/${formattedEndDate}`
                 )
                 .then((response) => {
                     setMesures(response.data);

@@ -16,7 +16,7 @@ function ListPatients() {
     const [medecinNom, setMedecinNom] = useState("");
 
     const fetchData = async () => {
-        const response = await axios.get(`http://localhost:8080/medecins/${userEmail}`);
+        const response = await axios.get(`https://yvandev.fr/easyHealth/medecins/${userEmail}`);
         setMedecinData(response.data);
     };
 
@@ -34,7 +34,7 @@ function ListPatients() {
         }
 
         try {
-            const response = await axios.put(`http://localhost:8080/medecins/${userEmail}/update`, formData);
+            const response = await axios.put(`https://yvandev.fr/easyHealth/medecins/${userEmail}/update`, formData);
             setMedecinData(response.data);
             if (updatedData.adresseMail) {
                 updateUserEmail(updatedData.adresseMail);

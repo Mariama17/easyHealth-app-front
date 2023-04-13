@@ -25,7 +25,7 @@ function PatientCards() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8080/patients/medecin/' + userEmail)
+            .get('https://yvandev.fr/easyHealth/patients/medecin/' + userEmail)
             .then((response) => {
                 setPatients(response.data);
             })

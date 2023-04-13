@@ -36,7 +36,7 @@ const Agenda = ({ userEmail }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/rdv/medecin/" + userEmail);
+                const response = await axios.get("https://yvandev.fr/easyHealth/rdv/medecin/" + userEmail);
                 const data = response.data.map(rdv => {
                     const startDateTime = new Date(rdv.dateRdv + "T" + rdv.heureRdv);
                     const [hours, minutes] = rdv.duree.split(':');
@@ -78,7 +78,7 @@ const Agenda = ({ userEmail }) => {
 
     const fetchDataAndUpdateItems = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/rdv/medecin/" + userEmail);
+            const response = await axios.get("https://yvandev.fr/easyHealth/rdv/medecin/" + userEmail);
             const data = response.data.map(rdv => {
                 const startDateTime = new Date(rdv.dateRdv + "T" + rdv.heureRdv);
                 const [hours, minutes] = rdv.duree.split(':');
@@ -130,12 +130,12 @@ const Agenda = ({ userEmail }) => {
             const seconds = String(item.startDateTime.getSeconds()).padStart(2, '0');
             const formattedTime = `${hours}:${minutes}:${seconds}`;
 
-            const response = await axios.get(`http://localhost:8080/rdv/id/${formattedDate}/${formattedTime}/${userEmail}`);
+            const response = await axios.get(`https://yvandev.fr/easyHealth/rdv/id/${formattedDate}/${formattedTime}/${userEmail}`);
             const rdvData = response.data;
             const rdvId = rdvData; // Récupère l'ID du RDV.
 
             // Supprime le RDV en utilisant l'ID récupéré.
-            await axios.delete(`http://localhost:8080/rdv/${rdvId}`);
+            await axios.delete(`https://yvandev.fr/easyHealth/rdv/${rdvId}`);
 
             // Mettre à jour l'agenda après la suppression du RDV.
             const newItems = items.filter(i => i.startDateTime !== item.startDateTime);
@@ -163,7 +163,7 @@ const Agenda = ({ userEmail }) => {
             console.log(formattedDate);
             console.log(formattedTime);
 
-            const response = await axios.get(`http://localhost:8080/rdv/id/${formattedDate}/${formattedTime}/${userEmail}`);
+            const response = await axios.get(`https://yvandev.fr/easyHealth/rdv/id/${formattedDate}/${formattedTime}/${userEmail}`);
             const rdvData = response.data;
             setEditingRdv(rdvData);
             setShowModal(true);
@@ -177,7 +177,7 @@ const Agenda = ({ userEmail }) => {
         console.log(`http://localhost:8080/rdv/` + editingRdv);
 
         try {
-            await axios.put(`http://localhost:8080/rdv/` + editingRdv, null, {
+            await axios.put(`https://yvandev.fr/easyHealth/rdv/` + editingRdv, null, {
                 params: {
                     dateRDV: newDate,
                     heureRDV: newTime,
