@@ -12,7 +12,6 @@ import ListPatients from './components/listPatients';
 import Consultation from './components/consultation';
 import Profil from './components/profil';
 import Connect from './components/connect'
-import Documents from './components/documents';
 import Contact from './components/contact';
 import Pathologie from './components/pathologie';
 import Data from './components/data';
@@ -20,6 +19,7 @@ import Stockage from './components/stockage';
 import UserContext from './components/UserContext';
 import PatientCards from "./components/patientCards";
 import Medical from "./components/medical";
+import Admin from "./components/admin";
 import './css/main.css';
 import {
   BrowserRouter as Router,
@@ -54,13 +54,13 @@ function App() {
             <Route exact path="/listPatients" element={<ListPatients/>} />
             <Route exact path="/consultation" element={<Consultation/>} />
             <Route exact path="/profil" element={<Profil/>} />
-            <Route exact path="/documents" element={<Documents/>} />
             <Route exact path="/contact" element={<Contact/>} />
             <Route exact path="/pathologie" element={<Pathologie/>} />
             <Route exact path="/data" element={<Data/>} />
             <Route exact path="/stockage" element={<Stockage/>} />
             <Route exact path="/patientCards" element={<PatientCards/>} />
             <Route exact path="/medical" element={<Medical/>} />
+            <Route exact path="/admin" element={<Admin/>} />
           </Routes>
       </Router>
       </UserContext.Provider>
