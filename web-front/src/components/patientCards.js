@@ -46,6 +46,7 @@ function PatientCards() {
                             onClick={() =>
                                 navigate("/pathologie", { state: { patientMail: patient.adresseMail } })
                             }
+
                         >
                             <Card className={classes.card}>
                                 <CardMedia

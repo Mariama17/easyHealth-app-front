@@ -58,10 +58,15 @@ function Pathologie() {
                     <img src={img} width="20%" />
                 </span>
             </div>
-            <br/>
             <span>  
                 <MenuBar />
             </span>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <div className='Pprofil'>
                 <br/>
                 {/* A modifier par les données de l'API*/}
