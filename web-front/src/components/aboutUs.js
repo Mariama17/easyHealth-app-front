@@ -30,9 +30,9 @@ function AboutUs() {
 					</Typography> 
                 </Button>
                 <img src={Line} style={{marginRight: '2%'}}/>
-                <Button onClick={() => navigate("/inscription")} style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none', marginRight: 20, fontFamily: 'Work Sans', fontStyle:'normal', mixBlendMode: 'normal', marginTop:'-2%'}}>
+                <Button onClick={() => navigate("/admin")} style={{width:150, height: 30, background: ' #1846a3 ', color: 'white', border: 'none', marginRight: 20, fontFamily: 'Work Sans', fontStyle:'normal', mixBlendMode: 'normal', marginTop:'-2%'}}>
                     <b>
-                        S'inscrire
+                        Admin
                     </b>
                 </Button> 
                 <Button onClick={() => navigate("/login")} style={{width:150, height: 30, background: ' white ', color: '#1846a3', border: 'none', fontFamily: 'Work Sans', fontStyle:'normal', marginTop:'-2%'}}>

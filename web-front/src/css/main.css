@@ -401,7 +401,7 @@ nav {
     padding: 20px;
     position: absolute;
     width: 40%;
-    height: 55%;
+    height: 50%;
     background: #FFFFFF;
     border: 2px dashed #799A4D;
     border-radius: 30px;
@@ -489,7 +489,7 @@ button[type="submit"]:hover {
 
 .Pprofil {
     margin-left: 25%;
-    margin-top: 10%;
+    margin-top: 7%;
 }
   
 .profile-picture img {
@@ -546,12 +546,13 @@ button[type="submit"]:hover {
     align-items: flex-start;
     width: 50%;
     margin-top: -10%;
-    margin-left: 45%;
+    margin-left: 42%;
 }
 
 .profile-details {
-    width: 40%;
-    height: 200px;
+    width: 50%;
+    height: 130px;
+    margin-left: 10%;
     overflow-y: auto;
 }
 
@@ -655,20 +656,6 @@ button[type="submit"]:hover {
     color: #719458;
 }
 
-/* .btnMesure {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 161px;
-    position: absolute;
-    width: 10%;
-    height: 8%;
-    margin-left: 28%;
-    margin-top: 6%;
-    background: #3A6898;
-    border-radius: 30px;
-} */
-
 .tcadre {
     position: absolute;
     width: 100%;
@@ -693,26 +680,6 @@ button[type="submit"]:hover {
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 0px 0px 1px rgba(104, 113, 130, 0.16);
 }
 
-/* .tableau {
-    border-collapse: collapse;
-    min-width: 400px;
-    width: auto;
-    box-shadow: 0 5px 50px rgba(0,0,0,0.15);
-    margin: 100px auto;
-    cursor: pointer;
-    border: 1px solid #add;
-}
-
-thead tr {
-  background-color: midnightblue;
-  color: #fff;
-  text-align: center;
-} */
-
-.date {
-    margin-left: 5%;
-}
-
 .graphe {
     margin-left: 15%;
     width: 80%;
@@ -723,4 +690,82 @@ thead tr {
     font-family: 'Work Sans';
     font-style:'normal';
     margin-left: '50%'
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+  
+.react-datepicker-wrapper {
+    margin: 10px;
+}
+  
+.react-datepicker {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+.react-datepicker__header {
+    background-color: #007bff;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+  
+.react-datepicker__current-month,
+.react-datepicker-time__header {
+    font-weight: bold;
+    font-size: 18px;
+}
+  
+.react-datepicker__navigation {
+    top: 20px;
+    line-height: 1;
+    font-size: 14px;
+    cursor: pointer;
+}
+  
+.react-datepicker__navigation--previous {
+    border-right-color: #fff;
+}
+  
+.react-datepicker__navigation--next {
+    border-left-color: #fff;
+}
+  
+.react-datepicker__day-names {
+    display: flex;
+    justify-content: space-around;
+    margin: 2px 0;
+    font-size: 14px;
+}
+  
+.react-datepicker__day-name,
+.react-datepicker__day {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 2px;
+    border-radius: 50%;
+}
+  
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range {
+    background-color: #007bff;
+    color: #fff;
+}
+  
+.react-datepicker__day--keyboard-selected {
+    background-color: rgba(0, 123, 255, 0.5);
+}
+  
+.react-datepicker__day--disabled {
+    opacity: 0.5;
+    cursor: default;
 }

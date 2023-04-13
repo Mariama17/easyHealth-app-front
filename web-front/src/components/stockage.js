@@ -190,6 +190,7 @@ function Stockage() {
                         className={classes.button}
                         component="span"
                         startIcon={<CloudUploadIcon />}
+                        style={{color: 'white', background: '#6B8F5E'}}
                     >
                         Upload File
                     </Button>
