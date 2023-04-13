@@ -94,10 +94,11 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
             if (measure.periode === periode) {
                 const dateLabel = format(new Date(measure.date), 'dd/MM/yyyy');
                 const nomMesure = measure.nomMesure;
+                const unite = measure.unite;
 
                 if (!datasetsByNomMesure[nomMesure]) {
                     datasetsByNomMesure[nomMesure] = {
-                        label: `${selectedPathology} (${periode}, ${nomMesure})`,
+                        label: `${selectedPathology} (${periode}, ${unite}, ${nomMesure})`,
                         data: [],
                         fill: false,
                         borderColor: colors[Object.keys(datasetsByNomMesure).length % colors.length],
@@ -128,6 +129,7 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
         }));
     };
 
+
     const colors = [
         'rgba(75, 192, 192, 1)',
         'rgba(255, 99, 132, 1)',
@@ -157,6 +159,8 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
             default:
                 break;
         }
+
+        console.log(chartData)
 
         return (
             <Line
@@ -198,17 +202,21 @@ function Dashboard({ patientMail, selectedPathology, startDate, endDate }) {
                                     const { label } = dataset;
                                     const value = dataset.data[dataIndex];
 
+                                    // Trouver l'objet mesure correspondant
                                     const measureIndex = chartData[periode][selectedPathology].labels[dataIndex];
                                     const measure = mesures.find(
                                         (m) => format(new Date(m.date), 'dd/MM/yyyy') === measureIndex && m.periode === periode
                                     );
-                                    const unite = measure.unite;
+                                    const parties = label.split(', ');
+                                    const extrait = parties[1];
 
-                                    return `${label}: ${value} ${unite}`;
+                                    const unite = extrait;
+
+                                    return `${label}: ${value} ${unite}`; // Utilisez l'unité ici
                                 },
 
-
                             },
+
                         },
                     },
                 }}
