@@ -51,8 +51,6 @@ function Pathologie() {
         fetchDoctorData();
     }, []);
 
-
-
     return (
         <div className='allProfilPage'>
             <div className='headerProfil'>
@@ -60,14 +58,16 @@ function Pathologie() {
                     <img src={img} width="20%" />
                 </span>
             </div>
-            <br/>
             <span>  
                 <MenuBar />
             </span>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <div className='Pprofil'>
-                <h4>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </h4>
                 <br/>
                 {/* A modifier par les données de l'API*/}
                 <img src={`data:image/jpeg;base64,${patientData?.photoProfil}`} alt="Photo de profil" width="200" height="150"/>
@@ -75,8 +75,8 @@ function Pathologie() {
             <div className="profile-details-wrapper">
                 <div className="profile-detail">
                     <p><b>Nom : {patientData?.nom} {patientData?.prenom}</b></p>
-                    <p><b>Adresse mail : {patientData?.adresseMail}</b></p>
-                    <p><b>Numéro de téléphone : {patientData?.numeroTelephone}</b></p>
+                    <p><b>Adresse mail :</b> {patientData?.adresseMail}</p>
+                    <p><b>Numéro de téléphone : </b>{patientData?.numeroTelephone}</p>
                 </div>
 
                 <div className="profile-details">
@@ -109,7 +109,8 @@ function Pathologie() {
                                 <ul>
                                     {consultation.ordonnance.prescriptions.map((prescription, idx) => (
                                         <li key={idx}>
-                                            {prescription.medicamentNom} (DESCRIPTION : {prescription.medicamentDescription})
+                                            <strong>•</strong> {prescription.medicamentNom} (DESCRIPTION : {prescription.medicamentDescription})
+                                            <br/>
                                         </li>
                                     ))}
                                 </ul>

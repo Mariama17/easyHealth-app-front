@@ -80,9 +80,9 @@ function Sign_up() {
                         placeholder="Confirmer votre mot de passe"
                     /> 
                     <div className='sign_up'>
-                        <Button onClick={() => navigate('/login')} style={{ width: 200, margin: '1%', background: '#3A6898', color: 'white', marginLeft: '32%' }}>
+                        <Button onClick={() => navigate('/admin')} style={{ width: 200, margin: '1%', background: '#3A6898', color: 'white', marginLeft: '32%' }}>
                             <b>
-                                S'inscrire
+                                admin
                             </b>
                         </Button>
                     </div>

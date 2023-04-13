@@ -18,16 +18,15 @@ function ListPatients() {
             <br/>
             <div style={{ display: 'flex'}}>
                 <MenuBar />
-                
                 <Grid container spacing={{ xs: 2, md: 3, sm: 5 }} sx={{ display: 'flex', flexDirection: 'row' }}>
  				<Grid item xs={12} md={7} sm={7}>
  					<TextField
 						id='search'
- 						placeholder='Nom, Prenom, phathologie'
+ 						placeholder='Nom, Prenom, Phathologie'
  						label='Rechercher un patient'
  						variant='outlined'
  						sx={{ width: '80%' }}
-                        style={{marginTop: '15%', marginLeft: '60%'}}
+                        style={{marginTop: '17%', marginLeft: '60%'}}
 						/>
 					</Grid>
                 </Grid>
